@@ -1,113 +1,448 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import { Application } from '@splinetool/runtime';
+
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
+  const servicesRef = useRef()
+  const ownersRef = useRef()
+  const aboutUsRef = useRef()
+
+  const botToken = '6836523730:AAF_OFdJa39ZaCD3Nra8GS7Z5LSg1DLRn9o'
+  const chatId = "@xeond_requests"
+  const API = `https://api.telegram.org/bot${botToken}/sendMessage`
+
+  const services = [
+    { value: '1', text: 'Графический дизайн', emoji: '🎨' },
+    { value: '2', text: 'UX/UI дизайн', emoji: '📺' },
+    { value: '3', text: 'Интерьер дизайн', emoji: '🏬' },
+  ]
+
+  const [sendData, setSendData] = useState({
+    type: '1',
+    name: '',
+    phoneNumber: '',
+    phoneNumber2: '',
+  })
+
+  const handleInputChange = (e, from) => {
+    const value = e.target.value;
+    // Проверяем, содержит ли значение только числа и знак плюса, и не превышает ли 13 символов
+    if (/^[0-9+]*$/.test(value) && value.length <= 13) {
+      if (from === 'bottom') {
+        setSendData({ ...sendData, phoneNumber2: e.target.value })
+      } else {
+        setSendData({ ...sendData, phoneNumber: e.target.value })
+      }
+    }
+  };
+
+  async function sendRequest(from) {
+    try {
+      var copySendData = { ...sendData }
+      if (from === 'bottom') {
+        copySendData.phoneNumber2 = copySendData.phoneNumber
+      }
+      var seriveItem = services.find(item => item.value === copySendData.type)
+      const text =
+        `Новая заявка!🎉\n\nУслуга: <b>${seriveItem?.text} ${seriveItem?.emoji}</b>\nИмя: <b>${copySendData.name}</b>\nТелефон: <b><a href="https://t.me/${copySendData.phoneNumber}">${copySendData.phoneNumber}</a></b>`;
+      const response = await fetch(API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          parse_mode: 'html',
+          text,
+        }),
+      })
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => {
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+    app.load('https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode');
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="header_wrapper">
+        <div className="header">
+          <Image src="/assets/images/header_logo.svg" width={130} height={50} alt="" />
+          <div className="header_menu">
+            <div className="header_menu_item">
+              <div onClick={() => window.scrollTo(0, servicesRef.current.offsetTop - 200)}>услуги</div>
+            </div>
+            <div className="header_menu_item">
+              <div onClick={() => window.scrollTo(0, ownersRef.current.offsetTop - 200)}>портфолио</div>
+            </div>
+            <div className="header_menu_item">
+              <a onClick={() => window.scrollTo(0, aboutUsRef.current.offsetTop - 200)}>о нас</a>
+            </div>
+          </div>
+        </div>
+        <button className="header_btn">
+          <Link href="tel:+998909324939">контакты</Link>
+        </button>
+      </div>
+      <div className="block_01_bg">
+        <div className="container">
+          <div className="row block_01">
+            <div className="col-lg-7">
+              <div className="block_01_title">
+                Стиль вашего <br />п<b className="italic">рост</b>ранства
+              </div>
+              <div className="block_01_description">
+                Добро пожаловать в студию, где творчество встречает <br />
+                функциональность. Воплощаем идеи в жизнь, придавая <br />
+                проектам неповторимый стиль и эстетику.
+              </div>
+              <Link href="index.html#request">
+                <div className="block_01_btn">Проконсультировать</div>
+              </Link>
+            </div>
+            <div className="col-lg-5" style={{ minHeight: '420px' }}>
+              <canvas id="canvas3d"></canvas>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="container">
+        <div className="block_01_link">
+          Нажмите
+          <button className="">RETURN</button>
+          чтобы продолжить
+        </div>
+        <div className="row owners" id="owners" ref={ownersRef}>
+          <div className="col-lg-4">
+            <div className="owner">
+              <div className="owner_photo">
+                <div className="owner_photo_blur" />
+                <Image
+                  src="/assets/images/owner_1.png"
+                  alt=""
+                  fill
+                  quality={100}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px"
+                />
+              </div>
+              <div className="owner_info">
+                <div className="owner_info_text_01">Амир</div>
+                <div className="owner_info_text_02">Graphic</div>
+              </div>
+            </div>
+            <div className="owner_exapmles">
+              <Image src="/assets/images/exapmle_01.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_02.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_03.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_04.png" alt="" width={90} height={90} />
+              <div className="owner_exapmles_more">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={32}
+                  height={32}
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M12 6.6665L20 15.9998L12 25.3332"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="owner">
+              <div className="owner_photo">
+                <div className="owner_photo_blur second" />
+                <Image
+                  src="/assets/images/owner_2.png"
+                  alt=""
+                  fill
+                  quality={100}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px"
+                />
+              </div>
+              <div className="owner_info">
+                <div className="owner_info_text_01">Камрон</div>
+                <div className="owner_info_text_02">WEB</div>
+              </div>
+            </div>
+            <div className="owner_exapmles">
+              <Image src="/assets/images/exapmle_05.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_06.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_07.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_08.png" alt="" width={90} height={90} />
+              <div className="owner_exapmles_more">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={32}
+                  height={32}
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M12 6.6665L20 15.9998L12 25.3332"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="owner">
+              <div className="owner_photo">
+                <div className="owner_photo_blur third" />
+                <Image
+                  src="/assets/images/owner_3.png"
+                  alt=""
+                  fill
+                  quality={100}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px"
+                />
+              </div>
+              <div className="owner_info">
+                <div className="owner_info_text_01">Никита</div>
+                <div className="owner_info_text_02">Interior</div>
+              </div>
+            </div>
+            <div className="owner_exapmles">
+              <Image src="/assets/images/exapmle_09.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_10.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_11.png" alt="" width={90} height={90} />
+              <Image src="/assets/images/exapmle_12.png" alt="" width={90} height={90} />
+              <div className="owner_exapmles_more">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={32}
+                  height={32}
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M12 6.6665L20 15.9998L12 25.3332"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div className="more" id="more">
+            <div className="more_item">
+              <Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
+            </div>
+            <div className="more_item">
+              <Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
+            </div>
+            <div className="more_item">
+              <Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
+            </div>
+          </div>
+        </div>
+        <div id="about_us" ref={aboutUsRef}>
+          <Image src="/assets/images/block_03.png" alt="" className="about_us_img" width={1300} height={325} />
+          <div className="about_us">О нас</div>
+          <div className="about_us_desription">
+            <b className="ml-20">XEOND</b> - основанная в 2024 году, представляет
+            собой инновационную компанию, специализирующуюся в области дизайна
+            интерьера, графического дизайна и веб-дизайна. Наша миссия - создание
+            пространств и визуальных решений,которые сочетают в себе современность,
+            функциональность и креативность. <br />
+            <br />
+            <b>Графический дизайн</b> в нашем исполнении ориентирован на создание
+            сильных брендов и эффективных визуальных решений. Мы разрабатываем
+            логотипы, корпоративный стиль, упаковку и другие элементы графического
+            дизайна, подчеркивая уникальные характеристики бренда. <br />
+            <br />
+            <b>Веб-дизайн</b> xeond фокусируется на создании современных и
+            интуитивно понятных веб-сайтов. Мы интегрируем последние
+            технологии,чтобы обеспечить наших клиентов функциональными и
+            привлекательными онлайн-присутствиями. <br />
+            <br />
+            <b>Дизайн интерьера</b> xeond предлагает персонализированные
+            концепции,интегрируя последние тенденции в дизайне и инновационные
+            технологии. Мы стремимся создавать уникальные интерьеры,отражающие стиль
+            и потребности наших клиентов.
+          </div>
+        </div>
+        <div className="row request_block" id="request">
+          <div className="col-lg-6">
+            <div className="request_block_left">
+              <Image src="/assets/images/v_key.png" alt="" height={400} width={400} quality={100} />
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <select className="request_select" onChange={(e) => setSendData({ ...sendData, type: e.target.value })}>
+              {services.map((item, index) => (
+                <option value={item.value} key={index}>{item.text}</option>
+              ))}
+            </select>
+            <input type="text" className="request_input" placeholder="Имя"
+              onChange={(e) => setSendData({ ...sendData, name: e.target.value })} />
+            <input type="text" className="request_input" placeholder="Номер" value={sendData.phoneNumber}
+              onChange={(e) => handleInputChange(e)} maxLength={13} />
+            <button className="request_btn" onClick={() => sendRequest()}>Оставить заявку</button>
+          </div>
+        </div>
+        <div className="row services" id="services" ref={servicesRef}>
+          <div className="col-lg-4">
+            <div className="service_card">
+              <div className="service_card_img">
+                <Image src="/assets/images/service_1.png" alt="" height={300} width={300} quality={100} />
+              </div>
+              <div className="service_card_info">Графический дизайн</div>
+              <div className="service_card_text">
+                Создание уникальных символов и стилей, которые идентифицируют
+                компанию или продукт.
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="service_card">
+              <div className="service_card_img">
+                <Image src="/assets/images/service_2.png" alt="" height={300} width={300} quality={100} />
+              </div>
+              <div className="service_card_info">UX/UI дизайн</div>
+              <div className="service_card_text">
+                Работа над внешним видом веб-сайтов, мобильных приложений и других
+                интерактивных систем.
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="service_card">
+              <div className="service_card_img">
+                <Image src="/assets/images/service_3.png" alt="" height={300} width={300} quality={100} />
+              </div>
+              <div className="service_card_info">Интерьер дизайн</div>
+              <div className="service_card_text">
+                Создает гармоничные композиции, выбирает мебель, цветовые решения и
+                освещение.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row prices">
+          <div className="col-lg-4">
+            <div className="price_card">
+              <div className="price_card_title">Starter</div>
+              <div className="price_card_row">Логотип</div>
+              <div className="price_card_row">1 варианта + презинтация</div>
+              <div className="price_card_row">Визуал соц-сетей</div>
+              <div className="price_card_row">Шапка профиля </div>
+              <div className="price_card_row">12 креативов</div>
+              <div className="price_card_row">Другое (на выбор)</div>
+              <div className="price_card_price">От 4 600 000 сум</div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="price_card popular" >
+              <div className="price_card_title">Pro</div>
+              <div className="price_card_row">Логотип</div>
+              <div className="price_card_row">3 варианта+презинтация</div>
+              <div className="price_card_row">Сайт (на выбор)</div>
+              <div className="price_card_row">Визуал соц-сетей</div>
+              <div className="price_card_row">Хочу спать</div>
+              <div className="price_card_row">Боже, что я делаю</div>
+              <div className="price_card_price">От 8.500.000 сум</div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="price_card">
+              <div className="price_card_title">Premium</div>
+              <div className="price_card_row">Логотип</div>
+              <div className="price_card_row">2 варианта + презинтация</div>
+              <div className="price_card_row">Лэндинг</div>
+              <div className="price_card_row">1 доп страница</div>
+              <div className="price_card_row">Визуал соц-сетей</div>
+              <div className="price_card_row">Другое (на выбор)</div>
+              <div className="price_card_price">От 8 400 000 сум</div>
+            </div>
+          </div>
+        </div>
+        <div className="row request_second">
+          <div className="col-lg-3">
+            <select className="request_second_select" onChange={(e) => setSendData({ ...sendData, type: e.target.value })}>
+              {services.map((item, index) => (
+                <option value={item.value} key={index}>{item.text}</option>
+              ))}
+            </select>
+          </div>
+          <div className="col-lg-3">
+            <input type="text" className="request_second_input" placeholder="Имя" onChange={(e) => setSendData({ ...sendData, name: e.target.value })} />
+          </div>
+          <div className="col-lg-3">
+            <input
+              type="number"
+              className="request_second_input"
+              placeholder="Номер телефона"
+              value={sendData.phoneNumber}
+              onChange={(e) => handleInputChange(e, 'bottom')} maxLength={13}
+            />
+          </div>
+          <div className="col-lg-3">
+            <button className="request_second_btn" onClick={() => sendRequest('bottom')}>Оставить заявку</button>
+          </div>
+        </div>
       </div>
+      <footer>
+        <div className="container">
+          <div className="footer">
+            <div className="footer_left">
+              <Image src="/assets/images/header_logo.svg" alt="" width={110} height={30} />
+              <span className="footer_text">2024</span>
+            </div>
+            <div className="footer_right">
+              <span className="footer_text">+(998) 90 932 49 39</span>
+              <Link href="tel:+998909324939" target="_blank">
+                <Image
+                  src="/assets/icons/footer_1.svg"
+                  alt=""
+                  width={48}
+                  height={48}
+                />
+              </Link>
+              <Link
+                href="https://instagram.com/xeond?igshid=OGQ5ZDc2ODk2ZA=="
+                target="_blank"
+              >
+                <Image
+                  src="/assets/icons/footer_2.svg"
+                  alt=""
+                  width={48}
+                  height={48}
+                />
+              </Link>
+              <Link href="https://t.me/Xe0nd" target="_blank">
+                <Image
+                  src="/assets/icons/footer_3.svg"
+                  alt=""
+                  width={48}
+                  height={48}
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   )
 }
