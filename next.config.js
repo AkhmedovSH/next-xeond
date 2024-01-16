@@ -5,7 +5,12 @@ const nextConfig = {
     swcMinify: true,
     distDir: 'build',
     // assetPrefix: './',
-    images: { unoptimized: true },
-}
+    // images: { unoptimized: true },
+		// trailingSlash: true,
+		// publicPath: '/',
+		// devServer: {
+		// 	historyApiFallback: true
+		// },
+	}
 
 module.exports = nextConfig
