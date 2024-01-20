@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-    // output: 'export',
+    output: 'export',
     reactStrictMode: true,
     swcMinify: true,
     distDir: 'build',
     // assetPrefix: './',
-    // images: { unoptimized: true },
+    images: { unoptimized: true },
 		// trailingSlash: true,
 		// publicPath: '/',
 		// devServer: {
