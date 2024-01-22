@@ -803,6 +803,10 @@ footer {
 
 .slick-arrow, .slick-arrow:hover {}
 
+.gap-50 {
+	gap: 50px;
+}
+
 /* Prices end */
 
 @media (max-width: 992px) {
@@ -854,6 +858,10 @@ footer {
         margin-bottom: 20px;
     }
 
+		.header_logo {
+			margin-right: 20px;
+		}
+
     /* .header {
         height: 100%;
     } */
@@ -871,6 +879,7 @@ footer {
     .header {
         padding: 20px 50px;
         height: 100%;
+				flex-direction: column;
     }
 
     .header img {
@@ -878,13 +887,12 @@ footer {
     }
 
     .header_menu {
-        flex-wrap: wrap;
-        justify-content: center;
+			flex-direction: column;
     }
 
     .block_01_title {
         font-size: 40px;
-        line-height: 64px;
+        line-height: 36px;
     }
 
     .about_us {
@@ -907,7 +915,7 @@ footer {
     }
 
     .container {
-        /* padding: 0 !important; */
+        padding: 0 !important;
     }
 
     .row {
@@ -933,4 +941,17 @@ footer {
     .top_title {
         margin-left: 0;
     }
+
+		.about_us_desription {
+			font-size: 16px;
+		}
+
+		#about_us {
+			margin: 0 10px;
+		}
+
+		.footer_right {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 }
