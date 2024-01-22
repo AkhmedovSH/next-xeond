@@ -19,7 +19,6 @@ function Request() {
     })
 
     async function sendRequest() {
-        console.log(111);
         try {
             var copySendData = { ...sendData }
             var seriveItem = services.find(item => item.value === copySendData.type)

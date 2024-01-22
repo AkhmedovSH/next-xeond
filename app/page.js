@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Application } from '@splinetool/runtime';
 
+import Slider from "react-slick";
+
 import Image from 'next/image'
 import Link from 'next/link'
 
 import Request from '@components/Request';
 
 export default function Home() {
-
 	const servicesRef = useRef()
 	const ownersRef = useRef()
 	const aboutUsRef = useRef()
@@ -19,11 +20,71 @@ export default function Home() {
 	const chatId = "@xeond_requests"
 	const API = `https://api.telegram.org/bot${botToken}/sendMessage`
 
+	var settings = {
+		dots: false,
+		infinite: false,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		initialSlide: 0,
+		prevArrow: <div></div>,
+		nextArrow: <div></div>,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	};
+
+
+	const [showSuccess, setShowSuccess] = useState(false)
+	const [showMore, setShowMore] = useState(0)
+
 	const services = [
 		{ value: '1', text: 'Графический дизайн', emoji: '🎨' },
 		{ value: '2', text: 'UX/UI дизайн', emoji: '📺' },
 		{ value: '3', text: 'Интерьер дизайн', emoji: '🏬' },
 	]
+
+	const graphicDesign = [
+		'/assets/images/service/graphic_design/exapmle_01.png',
+		'/assets/images/service/graphic_design/exapmle_02.png',
+		'/assets/images/service/graphic_design/exapmle_03.png',
+		'/assets/images/service/graphic_design/exapmle_04.png',
+	]
+	const interiorDesign = [
+		'/assets/images/service/interior_design/exapmle_01.png',
+		'/assets/images/service/interior_design/exapmle_02.png',
+		'/assets/images/service/interior_design/exapmle_03.png',
+		'/assets/images/service/interior_design/exapmle_04.png',
+	]
+	const uiDesign = [
+		'/assets/images/service/ui_design/exapmle_01.png',
+		'/assets/images/service/ui_design/exapmle_02.png',
+		'/assets/images/service/ui_design/exapmle_03.png',
+		'/assets/images/service/ui_design/exapmle_04.png',
+	]
+
+	const [examples, setExamples] = useState([]);
 
 	const [sendData, setSendData] = useState({
 		type: '1',
@@ -47,16 +108,36 @@ export default function Home() {
 				`Новая заявка!🎉\n\nУслуга: <b>${seriveItem?.text} ${seriveItem?.emoji}</b>\nИмя: <b>${copySendData.name}</b>\nТелефон: <b><a href="https://t.me/${copySendData.phoneNumber}">${copySendData.phoneNumber}</a></b>`;
 			const response = await fetch(API, {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
 					chat_id: chatId,
 					parse_mode: 'html',
 					text,
 				}),
 			})
+			if (response.ok) {
+				setSendData({ name: '', phoneNumber: '', })
+				localStorage.setItem('requestCount', '1')
+			}
 		} catch (error) {
+
+		}
+	}
+
+	function changeShowMore(index) {
+		if (index === showMore) {
+			setShowMore(null)
+		} else {
+			setShowMore(index)
+			if (index === 1) {
+				setExamples(graphicDesign)
+			}
+			if (index === 2) {
+				setExamples(uiDesign)
+			}
+			if (index === 3) {
+				setExamples(interiorDesign)
+			}
 
 		}
 	}
@@ -120,36 +201,22 @@ export default function Home() {
 							<Image src="/assets/images/exapmle_02.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_03.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_04.png" alt="" width={90} height={90} />
-							<div className="owner_exapmles_more">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width={32}
-									height={32}
-									viewBox="0 0 32 32"
-									fill="none"
-								>
-									<path
-										d="M12 6.6665L20 15.9998L12 25.3332"
-										stroke="white"
-										strokeWidth="1.5"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
+							<div className={"owner_exapmles_more " + (showMore === 1 ? 'rotate' : '')} onClick={() => changeShowMore(1)}>
+								<svg xmlns="http://www.w3.org/2000/svg" width={32} height={32}
+									viewBox="0 0 32 32" fill="none" >
+									<path d="M12 6.6665L20 15.9998L12 25.3332"
+										stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 								</svg>
 							</div>
 						</div>
+
 					</div>
 					<div className="col-lg-4">
 						<div className="owner">
 							<div className="owner_photo">
 								<div className="owner_photo_blur second" />
-								<Image
-									src="/assets/images/owner_2.png"
-									alt=""
-									fill
-									quality={100}
-									sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px"
-								/>
+								<Image src="/assets/images/owner_2.png" alt=""
+									fill quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
 							</div>
 							<div className="owner_info">
 								<div className="owner_info_text_01">Камрон</div>
@@ -161,7 +228,7 @@ export default function Home() {
 							<Image src="/assets/images/exapmle_06.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_07.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_08.png" alt="" width={90} height={90} />
-							<div className="owner_exapmles_more">
+							<div className={"owner_exapmles_more " + (showMore === 2 ? 'rotate' : '')} onClick={() => changeShowMore(2)}>
 								<svg xmlns="http://www.w3.org/2000/svg" width={32}
 									height={32} viewBox="0 0 32 32" fill="none">
 									<path d="M12 6.6665L20 15.9998L12 25.3332"
@@ -175,12 +242,8 @@ export default function Home() {
 							<div className="owner_photo">
 								<div className="owner_photo_blur third" />
 								<Image
-									src="/assets/images/owner_3.png"
-									alt=""
-									fill
-									quality={100}
-									sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px"
-								/>
+									src="/assets/images/owner_3.png" alt="" fill
+									quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
 							</div>
 							<div className="owner_info">
 								<div className="owner_info_text_01">Никита</div>
@@ -192,7 +255,7 @@ export default function Home() {
 							<Image src="/assets/images/exapmle_10.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_11.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_12.png" alt="" width={90} height={90} />
-							<div className="owner_exapmles_more">
+							<div className={"owner_exapmles_more " + (showMore === 3 ? 'rotate' : '')} onClick={() => changeShowMore(3)}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width={32}
@@ -211,16 +274,17 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="more" id="more">
-						<div className="more_item">
-							<Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
-						</div>
-						<div className="more_item">
-							<Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
-						</div>
-						<div className="more_item">
-							<Image src="/assets/images/more_1.png" alt="" width={400} height={260} />
-						</div>
+					<div className={"more " + (showMore ? 'show' : '')} id="more">
+						<Slider {...settings}>
+							{examples.map((item, index) => (
+								<Link key={index}
+									href={showMore === 1 ? "/service/graphic_design" : showMore === 2 ? '/service/ui_design' : '/service/interior_design'} >
+									<div className="more_item">
+										<Image src={item} alt="" fill quality={100} className="about_us_img" />
+									</div>
+								</Link>
+							))}
+						</Slider>
 					</div>
 				</div>
 				<div id="about_us" ref={aboutUsRef}>
@@ -252,7 +316,7 @@ export default function Home() {
 				<div className="row request_block" id="request" ref={requestRef}>
 					<div className="col-lg-6">
 						<div className="request_block_left">
-							<Image src="/assets/images/v_key.png" alt="" height={400} width={400} quality={100} />
+							<Image src="/assets/images/v_key.png" alt="" height={533} width={460} quality={100} />
 						</div>
 					</div>
 					<div className="col-lg-6">
@@ -261,7 +325,7 @@ export default function Home() {
 								<option value={item.value} key={index}>{item.text}</option>
 							))}
 						</select>
-						<input type="text" className="request_input" placeholder="Имя"
+						<input type="text" className="request_input" placeholder="Имя" value={sendData.name}
 							onChange={(e) => setSendData({ ...sendData, name: e.target.value })} />
 						<input type="text" className="request_input" placeholder="Номер" value={sendData.phoneNumber}
 							onChange={(e) => handleInputChange(e)} maxLength={13} />

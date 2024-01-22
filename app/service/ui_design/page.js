@@ -14,7 +14,7 @@ function page() {
 					</div>
 				</div>
 
-				<div className="price_card second">
+				<div className="price_card second mb-50">
 					<div className="row">
 						<div className="col-md-6">
 							<div className="price_card_row">Что делает UX/UI и веб дизайнер?</div>
@@ -30,12 +30,6 @@ function page() {
 							<div className="price_card_row">Информационный сайт</div>
 							<div className="price_card_row">Приложения</div>
 						</div>
-					</div>
-				</div>
-
-				<div className="price_card second mb-50">
-					<div className="title text-center">
-						От 9 900 000 сум
 					</div>
 				</div>
 

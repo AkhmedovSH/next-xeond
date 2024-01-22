@@ -14,7 +14,7 @@ function page() {
 					</div>
 				</div>
 
-				<div className="price_card second">
+				<div className="price_card second mb-50">
 					<div className="row">
 						<div className="col-md-6">
 							<div className="price_card_row">Что делает интерьер дизайнер?</div>
@@ -29,12 +29,6 @@ function page() {
 							<div className="price_card_row">Контроль выполнения проекта</div>
 							<div className="price_card_row">Подготовка к окончательной сдаче клиенту</div>
 						</div>
-					</div>
-				</div>
-
-				<div className="price_card second mb-50">
-					<div className="title text-center">
-						От 5 900 000 сум
 					</div>
 				</div>
 
