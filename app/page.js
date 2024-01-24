@@ -143,9 +143,9 @@ export default function Home() {
 	}
 
 	useEffect(() => {
-		const canvas = document.getElementById('canvas3d');
-		const app = new Application(canvas);
-		app.load('https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode');
+		// const canvas = document.getElementById('canvas3d');
+		// const app = new Application(canvas);
+		// app.load('https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode');
 	}, []);
 
 	return (
@@ -167,7 +167,7 @@ export default function Home() {
 							</a>
 						</div>
 						<div className="col-lg-5" style={{ minHeight: '420px' }}>
-							<canvas id="canvas3d"></canvas>
+							{/* <canvas id="canvas3d"></canvas> */}
 						</div>
 					</div>
 				</div>

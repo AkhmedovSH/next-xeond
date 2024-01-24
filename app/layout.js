@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
 		<html lang="ru">
 			<head>
 				<meta name="google-site-verification" content="CvmtL6r--U-MNclMYJfJdgRhNn4egixytDEJIeaa9_c" />
-				<link rel="icon" href="/images/logo.png" />
 				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap-grid.min.css" />
+				{/* <link rel="preload" href="https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode" as="fetch" /> */}
 			</head>
 			<body suppressHydrationWarning={true} className={inter.className}>
 				<Header />

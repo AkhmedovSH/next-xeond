@@ -43,6 +43,18 @@ function Header() {
 					</button>
 				</a>
 			</div>
+
+			<div className="header_menu second">
+				<div className="header_menu_item">
+					<div onClick={() => onScroll('services')}>услуги</div>
+				</div>
+				<div className="header_menu_item">
+					<div onClick={() => onScroll('owners')}>портфолио</div>
+				</div>
+				<div className="header_menu_item">
+					<a onClick={() => onScroll('about_us')}>о нас</a>
+				</div>
+			</div>
 		</>
 	)
 }
