@@ -1,11 +1,12 @@
 'use client'
 
-import {  useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Slider from "react-slick";
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image'
 import Link from 'next/link'
+import HomeSlider from '@components/HomeSlider';
 
 const Request = dynamic(() => import('@components/Request'), {
 	loading: () => <></>,
@@ -25,40 +26,7 @@ export default function Home() {
 	const chatId = "@xeond_requests"
 	const API = `https://api.telegram.org/bot${botToken}/sendMessage`
 
-	var settings = {
-		dots: false,
-		infinite: false,
-		speed: 500,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		initialSlide: 0,
-		prevArrow: <div></div>,
-		nextArrow: <div></div>,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 1
-				}
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
-					initialSlide: 2
-				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1
-				}
-			}
-		]
-	};
+
 
 
 	const [showSuccess, setShowSuccess] = useState(false)
@@ -183,7 +151,7 @@ export default function Home() {
 							<div className="owner_photo">
 								<div className="owner_photo_blur" />
 								<Image
-									src="/assets/images/owner_1.png"
+									src="/assets/images/owner_1.jpg"
 									alt=""
 									width={500}
 									height={500}
@@ -208,14 +176,17 @@ export default function Home() {
 								</svg>
 							</div>
 						</div>
+						{showMore === 1 &&
+							<HomeSlider showMore={showMore} examples={examples} isSecond={true} />
+						}
 
 					</div>
 					<div className="col-lg-4">
 						<div className="owner">
 							<div className="owner_photo">
 								<div className="owner_photo_blur second" />
-								<Image src="/assets/images/owner_2.png" alt=""
-									fill quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
+								<Image src="/assets/images/owner_2.jpg" alt=""
+									width={500} height={500} quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
 							</div>
 							<div className="owner_info">
 								<div className="owner_info_text_01">Камрон</div>
@@ -235,13 +206,18 @@ export default function Home() {
 								</svg>
 							</div>
 						</div>
+						{showMore === 2 &&
+							<HomeSlider showMore={showMore} examples={examples} isSecond={true} />
+						}
 					</div>
 					<div className="col-lg-4">
 						<div className="owner">
 							<div className="owner_photo">
 								<div className="owner_photo_blur third" />
 								<Image
-									src="/assets/images/owner_3.png" alt="" fill
+									src="/assets/images/owner_3.png" alt=""
+									width={500}
+									height={500}
 									quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
 							</div>
 							<div className="owner_info">
@@ -272,19 +248,11 @@ export default function Home() {
 								</svg>
 							</div>
 						</div>
+						{showMore === 3 &&
+							<HomeSlider showMore={showMore} examples={examples} isSecond={true} />
+						}
 					</div>
-					<div className={"more " + (showMore ? 'show' : '')} id="more">
-						<Slider {...settings}>
-							{examples.map((item, index) => (
-								<Link key={index}
-									href={showMore === 1 ? "/service/graphic_design" : showMore === 2 ? '/service/ui_design' : '/service/interior_design'} >
-									<div className="more_item">
-										<Image src={item} alt="" fill quality={100} className="about_us_img" />
-									</div>
-								</Link>
-							))}
-						</Slider>
-					</div>
+					<HomeSlider showMore={showMore} examples={examples} />
 				</div>
 				<div id="about_us" ref={aboutUsRef}>
 					<Image src="/assets/images/block_03.png" alt="" className="about_us_img" width={1300} height={325} />
