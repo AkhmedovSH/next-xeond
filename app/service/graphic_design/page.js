@@ -1,8 +1,59 @@
 import React from 'react'
 
 import Request from '@components/Request';
+import PortfolioSlider from '@components/PortfolioSlider';
 
 function page() {
+
+  const items = {
+    esty: {
+      fistImage: '/assets/images/service/graphic_design/portfolio/esty_01.png',
+      items: [
+        '/assets/images/service/graphic_design/portfolio/esty_02.png',
+        '/assets/images/service/graphic_design/portfolio/esty_03.png',
+        '/assets/images/service/graphic_design/portfolio/esty_04.png',
+        '/assets/images/service/graphic_design/portfolio/esty_05.png',
+        '/assets/images/service/graphic_design/portfolio/esty_06.png',
+      ],
+    },
+    estyCatalog: {
+      fistImage: '/assets/images/service/graphic_design/portfolio/esty_catalog_01.png',
+      items: [
+        '/assets/images/service/graphic_design/portfolio/esty_catalog_02.png',
+        '/assets/images/service/graphic_design/portfolio/esty_catalog_03.png',
+        '/assets/images/service/graphic_design/portfolio/esty_catalog_04.png',
+        '/assets/images/service/graphic_design/portfolio/esty_catalog_05.png',
+        '/assets/images/service/graphic_design/portfolio/esty_catalog_06.png',
+      ],
+    },
+    logo: {
+      fistImage: '/assets/images/service/graphic_design/portfolio/logo_01.png',
+      items: [
+        '/assets/images/service/graphic_design/portfolio/logo_02.png',
+        '/assets/images/service/graphic_design/portfolio/logo_03.png',
+      ],
+    },
+    esty: {
+      fistImage: '/assets/images/service/graphic_design/portfolio/esty_01.png',
+      items: [
+        '/assets/images/service/graphic_design/portfolio/esty_02.png',
+        '/assets/images/service/graphic_design/portfolio/esty_03.png',
+        '/assets/images/service/graphic_design/portfolio/esty_04.png',
+        '/assets/images/service/graphic_design/portfolio/esty_05.png',
+        '/assets/images/service/graphic_design/portfolio/esty_06.png',
+      ],
+    },
+    esty: {
+      fistImage: '/assets/images/service/graphic_design/portfolio/esty_01.png',
+      items: [
+        '/assets/images/service/graphic_design/portfolio/esty_02.png',
+        '/assets/images/service/graphic_design/portfolio/esty_03.png',
+        '/assets/images/service/graphic_design/portfolio/esty_04.png',
+        '/assets/images/service/graphic_design/portfolio/esty_05.png',
+        '/assets/images/service/graphic_design/portfolio/esty_06.png',
+      ],
+    },
+  }
 
   return (
     <>
@@ -39,8 +90,28 @@ function page() {
         <div className="">
           <div className="top_bg graphic_design" />
           <div className="top_title">
-          Портфолио
+            Портфолио
           </div>
+        </div>
+
+        <div className="mb-50">
+          <PortfolioSlider items={items.logo.items} firstImage={items.esty.fistImage} />
+        </div>
+
+        <div className="mb-50">
+          <PortfolioSlider items={items.estyCatalog.items} firstImage={items.esty.fistImage} />
+        </div>
+
+        <div className="mb-50">
+          <PortfolioSlider items={items.esty.items} firstImage={items.esty.fistImage} />
+        </div>
+
+        <div className="mb-50">
+          <PortfolioSlider items={items.esty.items} firstImage={items.esty.fistImage} />
+        </div>
+
+        <div className="mb-50">
+          <PortfolioSlider items={items.esty.items} firstImage={items.esty.fistImage} />
         </div>
       </div>
     </>

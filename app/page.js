@@ -1,14 +1,19 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { Application } from '@splinetool/runtime';
-
+import {  useRef, useState } from 'react'
 import Slider from "react-slick";
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Request from '@components/Request';
+const Request = dynamic(() => import('@components/Request'), {
+	loading: () => <></>,
+});
+const Keyboard = dynamic(() => import('@components/Keyboard'), {
+	loading: () => <></>,
+	ssr: false,
+});
 
 export default function Home() {
 	const servicesRef = useRef()
@@ -142,12 +147,6 @@ export default function Home() {
 		}
 	}
 
-	useEffect(() => {
-		// const canvas = document.getElementById('canvas3d');
-		// const app = new Application(canvas);
-		// app.load('https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode');
-	}, []);
-
 	return (
 		<>
 			<div className="block_01_bg">
@@ -167,7 +166,7 @@ export default function Home() {
 							</a>
 						</div>
 						<div className="col-lg-5" style={{ minHeight: '420px' }}>
-							{/* <canvas id="canvas3d"></canvas> */}
+							<Keyboard />
 						</div>
 					</div>
 				</div>

@@ -765,6 +765,18 @@ footer {
     background-size: cover;
 }
 
+.top_bg.graphic_design {
+    background-image: url('/assets/images/service/graphic_design/top_bg.png');
+}
+
+.top_bg.interior_design {
+    background-image: url('/assets/images/service/interior_design/top_bg.png');
+}
+
+.top_bg.ui_design {
+    background-image: url('/assets/images/service/ui_design/top_bg.png');
+}
+
 .top_title {
     border-radius: 30px;
     background: rgba(40, 40, 40, 0.50);
@@ -808,6 +820,13 @@ footer {
 .gap-50 {
     gap: 50px;
 }
+
+.portfolio_item {
+    position: relative;
+    min-height: 600px;
+}
+
+.portfolio_img {}
 
 /* Prices end */
 
