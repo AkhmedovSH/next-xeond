@@ -6,52 +6,56 @@ import PortfolioSlider from '@components/PortfolioSlider';
 function page() {
 
 	const items = {
-		logo: {
-			items: [
-				'/assets/images/service/graphic_design/portfolio/logo_01.png',
-				'/assets/images/service/graphic_design/portfolio/logo_02.png',
-				'/assets/images/service/graphic_design/portfolio/logo_03.png',
-			],
-		},
-		smmPost: {
-			items: [
-				'/assets/images/service/graphic_design/portfolio/smm_post_01.png',
-				'/assets/images/service/graphic_design/portfolio/smm_post_02.png',
-				'/assets/images/service/graphic_design/portfolio/smm_post_03.png',
-				'/assets/images/service/graphic_design/portfolio/smm_post_04.png',
-				'/assets/images/service/graphic_design/portfolio/smm_post_05.png',
-			],
-		},
-		estyCatalog: {
-			items: [
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_01.png',
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_02.png',
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_03.png',
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_04.png',
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_05.png',
-				'/assets/images/service/graphic_design/portfolio/esty_catalog_06.png',
-			],
-		},
-		esty: {
-			items: [
-				'/assets/images/service/graphic_design/portfolio/esty_01.png',
-				'/assets/images/service/graphic_design/portfolio/esty_02.png',
-				'/assets/images/service/graphic_design/portfolio/esty_03.png',
-				'/assets/images/service/graphic_design/portfolio/esty_04.png',
-				'/assets/images/service/graphic_design/portfolio/esty_05.png',
-				'/assets/images/service/graphic_design/portfolio/esty_06.png',
-			],
-		},
-		packages: {
-			fistImage: '/assets/images/service/graphic_design/portfolio/esty_01.png',
-			items: [
-				'/assets/images/service/graphic_design/portfolio/packages_01.png',
-				'/assets/images/service/graphic_design/portfolio/packages_02.png',
-				'/assets/images/service/graphic_design/portfolio/packages_03.png',
-				'/assets/images/service/graphic_design/portfolio/packages_04.png',
-				'/assets/images/service/graphic_design/portfolio/packages_05.png',
-			],
-		},
+		logo: [
+			{
+				img: '/assets/images/service/graphic_design/portfolio/logo_01.png',
+				title: 'Логотипы'
+			},
+			'/assets/images/service/graphic_design/portfolio/logo_02.png',
+			'/assets/images/service/graphic_design/portfolio/logo_03.png',
+		],
+		smmPost: [
+			{
+				img: '/assets/images/service/graphic_design/portfolio/smm_post_01.png',
+				title: 'SMM посты'
+			},
+			'/assets/images/service/graphic_design/portfolio/smm_post_02.png',
+			'/assets/images/service/graphic_design/portfolio/smm_post_03.png',
+			'/assets/images/service/graphic_design/portfolio/smm_post_04.png',
+			'/assets/images/service/graphic_design/portfolio/smm_post_05.png',
+		],
+		estyCatalog: [
+			{
+				img: '/assets/images/service/graphic_design/portfolio/esty_catalog_01.png',
+				title: 'Esty каталог'
+			},
+			'/assets/images/service/graphic_design/portfolio/esty_catalog_02.png',
+			'/assets/images/service/graphic_design/portfolio/esty_catalog_03.png',
+			'/assets/images/service/graphic_design/portfolio/esty_catalog_04.png',
+			'/assets/images/service/graphic_design/portfolio/esty_catalog_05.png',
+			'/assets/images/service/graphic_design/portfolio/esty_catalog_06.png',
+		],
+		esty: [
+			{
+				img: '/assets/images/service/graphic_design/portfolio/esty_01.png',
+				title: 'Esty'
+			},
+			'/assets/images/service/graphic_design/portfolio/esty_02.png',
+			'/assets/images/service/graphic_design/portfolio/esty_03.png',
+			'/assets/images/service/graphic_design/portfolio/esty_04.png',
+			'/assets/images/service/graphic_design/portfolio/esty_05.png',
+			'/assets/images/service/graphic_design/portfolio/esty_06.png',
+		],
+		packages: [
+			{
+				img: '/assets/images/service/graphic_design/portfolio/packages_01.png',
+				title: 'Упаковки'
+			},
+			'/assets/images/service/graphic_design/portfolio/packages_02.png',
+			'/assets/images/service/graphic_design/portfolio/packages_03.png',
+			'/assets/images/service/graphic_design/portfolio/packages_04.png',
+			'/assets/images/service/graphic_design/portfolio/packages_05.png',
+		]
 	}
 
 	return (
@@ -69,7 +73,6 @@ function page() {
 						<div className="col-md-6">
 							<div className="price_card_row">Что делает графический дизайнер?</div>
 							<div className="price_card_row">Презентации</div>
-							<div className="price_card_row">Лэндинг + 1 страница</div>
 							<div className="price_card_row">Упаковки товаров</div>
 							<div className="price_card_row">Визуалы для соцсетей</div>
 							<div className="price_card_row">Мерчи</div>
@@ -84,9 +87,9 @@ function page() {
 					</div>
 				</div>
 
-				<Request />
+				<Request defaultType={'1'} />
 
-				<div className="">
+				<div>
 					<div className="top_bg graphic_design" />
 					<div className="top_title">
 						Портфолио
@@ -94,24 +97,26 @@ function page() {
 				</div>
 
 				<div className="mb-50">
-					<PortfolioSlider items={items.logo.items} firstImage={items.esty.fistImage} />
+					<PortfolioSlider items={items.logo} />
 				</div>
 
 				<div className="mb-50">
-					<PortfolioSlider items={items.smmPost.items} firstImage={items.esty.fistImage} />
+					<PortfolioSlider items={items.smmPost} />
 				</div>
 
 				<div className="mb-50">
-					<PortfolioSlider items={items.esty.items} firstImage={items.esty.fistImage} />
+					<PortfolioSlider items={items.esty} />
 				</div>
 
 				<div className="mb-50">
-					<PortfolioSlider items={items.packages.items} firstImage={items.esty.fistImage} />
+					<PortfolioSlider items={items.packages} />
 				</div>
 
 				<div className="mb-50">
-					<PortfolioSlider items={items.estyCatalog.items} firstImage={items.esty.fistImage} />
+					<PortfolioSlider items={items.estyCatalog} />
 				</div>
+
+				<Request defaultType={'1'} />
 			</div>
 		</>
 	)

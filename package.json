@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@splinetool/runtime": "^1.0.28",
+    "@splinetool/runtime": "^1.0.38",
     "express": "^4.18.2",
     "next": "14.1.0",
     "react": "^18",

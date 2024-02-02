@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Slider from "react-slick";
 
 import dynamic from 'next/dynamic';
@@ -26,8 +26,7 @@ export default function Home() {
 	const chatId = "@xeond_requests"
 	const API = `https://api.telegram.org/bot${botToken}/sendMessage`
 
-
-
+	const [width, setWidth] = useState(600)
 
 	const [showSuccess, setShowSuccess] = useState(false)
 	const [showMore, setShowMore] = useState(0)
@@ -63,6 +62,8 @@ export default function Home() {
 		type: '1',
 		name: '',
 		phoneNumber: '',
+		error: '',
+		showError: '',
 	})
 
 	const handleInputChange = (e) => {
@@ -75,6 +76,18 @@ export default function Home() {
 
 	async function sendRequest() {
 		try {
+			if (!sendData.name) {
+				setSendData({ ...sendData, error: 'Заполните поле «Имя»', showError: true })
+			}
+			if (!sendData.phoneNumber) {
+				setSendData({ ...sendData, error: 'Заполните поле «Телефон»', showError: true })
+			}
+			if (!sendData.phoneNumber || !sendData.name) {
+				setTimeout(() => {
+					setSendData({ ...sendData, showError: false, error: 'Заполните поле' })
+				}, 1500);
+				return;
+			}
 			var copySendData = { ...sendData }
 			var seriveItem = services.find(item => item.value === copySendData.type)
 			const text =
@@ -89,6 +102,10 @@ export default function Home() {
 				}),
 			})
 			if (response.ok) {
+				setShowSuccess(true)
+				setTimeout(() => {
+					setShowSuccess(false)
+				}, 1500);
 				setSendData({ name: '', phoneNumber: '', })
 				localStorage.setItem('requestCount', '1')
 			}
@@ -115,6 +132,10 @@ export default function Home() {
 		}
 	}
 
+	useEffect(() => {
+		setWidth(window.innerWidth)
+	}, []);
+
 	return (
 		<>
 			<div className="block_01_bg">
@@ -133,8 +154,10 @@ export default function Home() {
 								<div className="block_01_btn">Проконсультировать</div>
 							</a>
 						</div>
-						<div className="col-lg-5" style={{ minHeight: '420px' }}>
-							<Keyboard />
+						<div className="col-lg-5 keyboard">
+							{width > 576 &&
+								<Keyboard />
+							}
 						</div>
 					</div>
 				</div>
@@ -189,7 +212,7 @@ export default function Home() {
 									width={500} height={500} quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
 							</div>
 							<div className="owner_info">
-								<div className="owner_info_text_01">Камрон</div>
+								<div className="owner_info_text_01">Бурхон</div>
 								<div className="owner_info_text_02">WEB</div>
 							</div>
 						</div>
@@ -197,7 +220,7 @@ export default function Home() {
 							<Image src="/assets/images/exapmle_05.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_06.png" alt="" width={90} height={90} />
 							<Image src="/assets/images/exapmle_07.png" alt="" width={90} height={90} />
-							<Image src="/assets/images/exapmle_08.png" alt="" width={90} height={90} />
+							<Image src="/assets/images/exapmle_08.png" alt="" width={90} height={90} quality={100} />
 							<div className={"owner_exapmles_more " + (showMore === 2 ? 'rotate' : '')} onClick={() => changeShowMore(2)}>
 								<svg xmlns="http://www.w3.org/2000/svg" width={32}
 									height={32} viewBox="0 0 32 32" fill="none">
@@ -215,7 +238,7 @@ export default function Home() {
 							<div className="owner_photo">
 								<div className="owner_photo_blur third" />
 								<Image
-									src="/assets/images/owner_3.png" alt=""
+									src="/assets/images/owner_3.jpg" alt=""
 									width={500}
 									height={500}
 									quality={100} sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 1200px" />
@@ -258,9 +281,8 @@ export default function Home() {
 					<Image src="/assets/images/block_03.png" alt="" className="about_us_img" width={1300} height={325} />
 					<div className="about_us">О нас</div>
 					<div className="about_us_desription">
-						<b className="ml-20">XEOND</b> - основанная в 2024 году, представляет
-						собой инновационную компанию, специализирующуюся в области дизайна
-						интерьера, графического дизайна и веб-дизайна. Наша миссия - создание
+						<b className="ml-20">XEOND</b> - основанная в 2024 году, представляет собой инновационную компанию, специализирующуюся в дизайне.
+						Наша миссия - создание
 						пространств и визуальных решений,которые сочетают в себе современность,
 						функциональность и креативность. <br />
 						<br />
@@ -350,47 +372,57 @@ export default function Home() {
 					<div className="col-lg-4">
 						<Link href="/price/starter">
 							<div className="price_card">
-								<div className="price_card_title">Starter</div>
+								<div className="price_card_title">Megabyte</div>
 								<div className="price_card_row">Логотип</div>
 								<div className="price_card_row">1 варианта + презинтация</div>
 								<div className="price_card_row">Визуал соц-сетей</div>
 								<div className="price_card_row">Шапка профиля </div>
-								<div className="price_card_row">12 креативов</div>
+								<div className="price_card_row">8 креативов</div>
 								<div className="price_card_row">Другое (на выбор)</div>
-								<div className="price_card_price">От 4 600 000 сум</div>
+								<div className="price_card_price">От 3 900 000 сум</div>
 							</div>
 						</Link>
 					</div>
 					<div className="col-lg-4">
 						<Link href="/price/pro">
 							<div className="price_card popular" >
-								<div className="price_card_title">Pro</div>
+								<div className="price_card_title">Terabyte</div>
 								<div className="price_card_row">Логотип</div>
 								<div className="price_card_row">3 варианта+презинтация</div>
-								<div className="price_card_row">Сайт (на выбор)</div>
-								<div className="price_card_row">Визуал соц-сетей</div>
-								<div className="price_card_row">Хочу спать</div>
-								<div className="price_card_row">Боже, что я делаю</div>
-								<div className="price_card_price">От 8.500.000 сум</div>
+								<div className="price_card_row">Многостраничный сайт</div>
+								<div className="price_card_row">Креативы 12 шт</div>
+								<div className="price_card_row">Шапка профиля</div>
+								<div className="price_card_row">Другое (на выбор)</div>
+								<div className="price_card_price">От 10 900 000 сум</div>
 							</div>
 						</Link>
 					</div>
 					<div className="col-lg-4">
 						<Link href="/price/premium">
 							<div className="price_card">
-								<div className="price_card_title">Premium</div>
+								<div className="price_card_title">Gigabyte</div>
 								<div className="price_card_row">Логотип</div>
 								<div className="price_card_row">2 варианта + презинтация</div>
-								<div className="price_card_row">Лэндинг</div>
-								<div className="price_card_row">1 доп страница</div>
-								<div className="price_card_row">Визуал соц-сетей</div>
+								<div className="price_card_row">Лэндинг + 1 стараница</div>
+								<div className="price_card_row">Шапка профиля</div>
+								<div className="price_card_row">8 креативово</div>
 								<div className="price_card_row">Другое (на выбор)</div>
-								<div className="price_card_price">От 8 400 000 сум</div>
+								<div className="price_card_price">От 9 400 000 сум</div>
 							</div>
 						</Link>
 					</div>
 				</div>
 				<Request />
+			</div>
+
+			<div className={"toast " + (showSuccess ? 'active' : '')}>
+				Успешно
+				<Image src="/assets/images/check.png" alt="" height={30} width={30} quality={100} />
+			</div>
+
+			<div className={"toast error " + (sendData.showError ? 'active' : '')}>
+				{/* <Image src="/assets/icons/times.svg" alt="" height={30} width={30} quality={100} /> */}
+				Ошибка: {sendData.error}
 			</div>
 		</>
 	)

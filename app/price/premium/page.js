@@ -21,7 +21,7 @@ function page() {
               <div className="price_card_row">2 логотипа + презинтация</div>
               <div className="price_card_row">Лэндинг + 1 страница</div>
               <div className="price_card_row">Оформление соц-сетей:</div>
-              <div className="price_card_row">12 постов</div>
+              <div className="price_card_row">Креативы 8 шт</div>
               <div className="price_card_row">Шапка профиля</div>
             </div>
             <div className="col-md-6">
@@ -37,11 +37,11 @@ function page() {
 
         <div className="price_card second mb-50">
           <div className="title text-center">
-            От 9 900 000 сум
+          От 9 400 000 сум
           </div>
         </div>
 
-        <Request />
+        <Request defaultPrice="2" />
       </div>
     </>
   )
