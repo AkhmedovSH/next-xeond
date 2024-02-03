@@ -1,8 +1,16 @@
 import { Inter } from 'next/font/google'
 
+import dynamic from 'next/dynamic';
+
 import Header from '@components/Header'
-import Footer from '@components/Footer'
-import '@styles/style.css'
+const Footer = dynamic(() => import('@components/Footer'), {
+	loading: () => <></>,
+	ssr: false,
+});
+
+dynamic(() => import('@styles/bootstrap-grid.min.css'));
+dynamic(() => import('@styles/style.css'));
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -41,7 +49,8 @@ export default function RootLayout({ children }) {
 		<html lang="ru">
 			<head>
 				<meta name="google-site-verification" content="CvmtL6r--U-MNclMYJfJdgRhNn4egixytDEJIeaa9_c" />
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap-grid.min.css" />
+				<meta httpEquiv="Cache-Control" content="public, max-age=3600" />
+				{/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap-grid.min.css" /> */}
 				{/* <link rel="preload" href="https://prod.spline.design/3DqELONma7LpaDeI/scene.splinecode" as="fetch" /> */}
 			</head>
 			<body suppressHydrationWarning={true} className={inter.className}>

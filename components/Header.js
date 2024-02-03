@@ -30,7 +30,7 @@ function Header() {
 				<div className="header_wrapper">
 					<div className="header">
 						<Link href="/">
-							<Image src="/assets/icons/header_logo.svg" width={130} height={50} alt="" className="header_logo" />
+							<Image src="/assets/icons/header_logo.svg" width={130} height={50} alt="Главная" className="header_logo" />
 						</Link>
 						<div className="header_menu">
 							<div className="header_menu_item">
@@ -40,7 +40,7 @@ function Header() {
 								<div onClick={() => onScroll('owners')}>портфолио</div>
 							</div>
 							<div className="header_menu_item">
-								<a onClick={() => onScroll('about_us')}>о нас</a>
+								<div onClick={() => onScroll('about_us')}>о нас</div>
 							</div>
 						</div>
 					</div>
@@ -59,7 +59,7 @@ function Header() {
 						<div onClick={() => onScroll('owners')}>портфолио</div>
 					</div>
 					<div className="header_menu_item">
-						<a onClick={() => onScroll('about_us')}>о нас</a>
+						<div onClick={() => onScroll('about_us')}>о нас</div>
 					</div>
 				</div>
 			</div>

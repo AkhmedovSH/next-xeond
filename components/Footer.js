@@ -17,7 +17,7 @@ function Footer() {
 								<Link href="tel:+998909324939" target="_blank">
 									<Image
 										src="/assets/icons/footer_1.svg"
-										alt=""
+										alt="Телефон"
 										width={48}
 										height={48}
 									/>
@@ -28,7 +28,7 @@ function Footer() {
 								>
 									<Image
 										src="/assets/icons/footer_2.svg"
-										alt=""
+										alt="Инстаграм"
 										width={48}
 										height={48}
 									/>
@@ -36,7 +36,7 @@ function Footer() {
 								<Link href="https://t.me/Xe0nd" target="_blank">
 									<Image
 										src="/assets/icons/footer_3.svg"
-										alt=""
+										alt="Телеграм"
 										width={48}
 										height={48}
 									/>
