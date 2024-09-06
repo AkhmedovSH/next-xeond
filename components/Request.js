@@ -47,7 +47,6 @@ function Request({ defaultType, defaultPrice }) {
 				}, 1500);
 				return;
 			}
-			return;
 			var copySendData = { ...sendData }
 
 			var text = 'Новая заявка!🎉\n\n'
@@ -115,7 +114,8 @@ function Request({ defaultType, defaultPrice }) {
 						className="request_second_input"
 						placeholder="Номер телефона"
 						value={sendData.phoneNumber}
-						onChange={(e) => handleInputChange(e)} maxLength={13}
+						onChange={(e) => handleInputChange(e)}
+						maxLength={13}
 					/>
 				</div>
 				<div className={colClassName}>

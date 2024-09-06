@@ -227,13 +227,13 @@ body {
 	height: 70%;
 }
 
-.owner_photo_blur.second {
-	/* background-image: url('/assets/images/owner_2.jpg'); */
+/* .owner_photo_blur.second {
+	background-image: url('/assets/images/owner_2.jpg');
 }
 
 .owner_photo_blur.third {
-	/* background-image: url('/assets/images/owner_3.jpg'); */
-}
+	background-image: url('/assets/images/owner_3.jpg');
+} */
 
 .owner_photo {
 	position: relative;
@@ -249,6 +249,8 @@ body {
 	border-top-right-radius: 65%;
 	border-bottom-left-radius: 65%;
 	border-bottom-right-radius: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .owner_info {
