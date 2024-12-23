@@ -8,7 +8,10 @@ export default function Home() {
 				<title>Xeond</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			asdasd
+			
+			<div className="">
+
+			</div>
 		</div>
 	);
 }
