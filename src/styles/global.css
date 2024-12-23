@@ -1,0 +1,80 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family:
+		Inter,
+		-apple-system,
+		BlinkMacSystemFont,
+		Segoe UI,
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		Fira Sans,
+		Droid Sans,
+		Helvetica Neue,
+		sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.fz12 {
+	font-size: 12px !important;
+}
+
+.fz14 {
+	font-size: 14px !important;
+}
+
+.fz16 {
+	font-size: 16px !important;
+}
+
+.fz18 {
+	font-size: 18px;
+}
+
+.fz20 {
+	font-size: 20px;
+}
+
+.fz22 {
+	font-size: 22px;
+}
+
+.fz24 {
+	font-size: 24px;
+}
+
+.fz26 {
+	font-size: 26px;
+}
+
+.fz28 {
+	font-size: 28px;
+}
+
+.fz30 {
+	font-size: 30px;
+}
+
+.fz32 {
+	font-size: 32px;
+}
+
+.fz34 {
+	font-size: 34px;
+}
