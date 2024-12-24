@@ -1,8 +1,71 @@
+@font-face {
+	font-family: 'VelaSans';
+	src: url('../fonts/Vela Sans//VelaSans-Light.woff2') format('woff2'),
+		url('../fonts/Vela Sans//VelaSans-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'VelaSans';
+	src: url('../fonts/Vela Sans//VelaSans-Regular.woff2') format('woff2'),
+		url('../fonts/Vela Sans//VelaSans-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'VelaSans';
+	src: url('../fonts/Vela Sans//VelaSans-Medium.woff2') format('woff2'),
+		url('../fonts/Vela Sans//VelaSans-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'VelaSans';
+	src: url('../fonts/Vela Sans//VelaSans-Bold.woff2') format('woff2'),
+		url('../fonts/Vela Sans//VelaSans-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unbounded';
+	src: url('../fonts/unbounded/Unbounded-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unbounded';
+	src: url('../fonts/unbounded/Unbounded-Medium.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unbounded';
+	src: url('../fonts/unbounded/Unbounded-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+
+:root {
+	--primary: #1967F2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
 html,
 body {
 	padding: 0;
 	margin: 0;
+
 	font-family:
+		'VelaSans'
 		Inter,
 		-apple-system,
 		BlinkMacSystemFont,
@@ -20,10 +83,6 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
-}
-
-* {
-	box-sizing: border-box;
 }
 
 img {

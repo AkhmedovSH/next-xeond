@@ -8,10 +8,16 @@ export default function Home() {
 				<title>Xeond</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			
-			<div className="">
 
-			</div>
+			<section>
+				<div className="">
+
+				</div>
+
+				<div className="">
+
+				</div>
+			</section>
 		</div>
 	);
 }
