@@ -9,8 +9,8 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<section>
-				<div className="">
+			<section className="block_01">
+				<div className=" ">
 
 				</div>
 
@@ -18,6 +18,16 @@ export default function Home() {
 
 				</div>
 			</section>
+
+			<section className="block_2"></section>
+			<section className="block_3"></section>
+			<section className="block_4"></section>
+			<section className="block_5"></section>
+			<section className="block_6"></section>
+			<section className="block_7"></section>
+			<section className="block_8"></section>
+			<section className="block_9"></section>
+			<section className="block_10"></section>
 		</div>
 	);
 }
