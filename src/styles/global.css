@@ -138,6 +138,17 @@ ul {
 	padding-left: 0;
 }
 
+section {
+	margin-bottom: 20px;
+}
+
+.card {
+	border-radius: 30px;
+	background: #FFF;
+	padding: 30px;
+	border: none;
+}
+
 .block_01 {
 	display: flex;
 	gap: 20px;
@@ -212,4 +223,10 @@ ul {
 
 .circles.primary div:nth-child(3) {
 	background: var(--primary);
+}
+
+.block_3 p {
+	color: #3F3F3F;
+	font-size: 24px;
+	line-height: 30px;
 }
