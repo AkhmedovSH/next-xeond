@@ -129,6 +129,14 @@ img {
 	font-size: 34px;
 }
 
+.gap-10 {
+	gap: 10px;
+}
+
+.gap-20 {
+	gap: 20px;
+}
+
 .mb-100 {
 	margin-bottom: 100px;
 }
@@ -225,8 +233,100 @@ section {
 	background: var(--primary);
 }
 
+.block_2 {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	background: #FFF;
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0);
+		/* Начинаем с начала */
+	}
+
+	to {
+		transform: translateX(-30%);
+		/* Сдвигаем на половину длины, так как контент дублирован */
+	}
+}
+
+.block_2 .card {
+	display: flex;
+	animation: scroll 10s linear infinite;
+	flex-direction: row;
+}
+
 .block_3 p {
 	color: #3F3F3F;
 	font-size: 24px;
 	line-height: 30px;
+}
+
+.scroller__inner {
+	padding-block: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+	overflow: hidden;
+	-webkit-mask: linear-gradient(90deg,
+			transparent,
+			white 20%,
+			white 80%,
+			transparent);
+	mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+	width: max-content;
+	flex-wrap: nowrap;
+	animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+	--_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+	--_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+	--_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+	--_animation-duration: 60s;
+}
+
+@keyframes scroll {
+	to {
+		transform: translate(calc(-50% - 0.5rem));
+	}
+}
+
+.tag-list {
+	margin: 0;
+	padding-inline: 0;
+	list-style: none;
+	gap: 50px;
+}
+
+.tag-list li {
+	color: #3F3F3F;
+	font-size: 44px;
+
+	display: flex;
+	align-items: center;
+}
+
+.tag-list li .point {
+	width: 29px;
+	height: 29px;
+	border-radius: 10px;
+	background: #8CB3F9;
 }
