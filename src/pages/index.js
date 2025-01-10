@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import Footer from '../components/Footer'
 import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
+import Image from 'next/image';
 
 export default function Home() {
 	const { toggleTheme } = useTheme();
@@ -90,7 +91,7 @@ export default function Home() {
 			<section className="block_01 mobile-hide">
 				<div className="left_card">
 					<div className="d-flex justify-content-between align-items-center mb-100">
-						<img src="./icons/logo_text.svg" alt="Логотип xeond" width={215} height={60} />
+						<Image src="./icons/logo_text.svg" alt="Логотип xeond" width={215} height={60} />
 
 						<div className="circles primary">
 							<div></div>
@@ -319,7 +320,7 @@ export default function Home() {
 
 				<div className="card">
 					<p className="top">
-						<b>Frontend dev -</b> <br />
+						<b>backend dev-</b> <br />
 						латыпов артём
 					</p>
 
@@ -330,7 +331,7 @@ export default function Home() {
 
 				<div className="card">
 					<p className="top">
-						<b>backend dev -</b> <br />
+						<b>Frontend dev -</b> <br />
 						ислом ахмедов
 					</p>
 
