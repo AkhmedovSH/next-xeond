@@ -1,20 +1,20 @@
 body.dark {
-    --text-color: #fff;
+	--text-color: #fff;
 
-    background-color: #000;
-    color: #FFF;
+	background-color: #000;
+	color: #FFF;
 }
 
 body.dark header {
-    background-color: rgba(13, 13, 13, 0.80);
+	background-color: rgba(13, 13, 13, 0.80);
 }
 
 body.dark .card,
 body.dark .block_2,
 body.dark footer {
-    background-color: #0D0D0D;
+	background-color: #0D0D0D;
 }
 
 body.dark footer .social-media {
-    background-color: #161616;
+	background-color: #161616;
 }

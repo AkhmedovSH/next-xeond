@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
 	const { toggleTheme } = useTheme();
@@ -531,7 +532,7 @@ export default function Home() {
 			</section>
 
 			<section className="block_10">
-				<div className="card">
+				<Link className="card" href='/ux'>
 					<p className="title">
 						<b>Ux/ui Диз. -</b> <br />
 						портфолио
@@ -540,9 +541,9 @@ export default function Home() {
 					<button>
 						<img src="./icons/arrow.svg" alt="Читать  подробнее" width={120} height={120} />
 					</button>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href='/graphic'>
 					<p className="title">
 						<b>граф. диз. -</b> <br />
 						портфолио
@@ -551,9 +552,9 @@ export default function Home() {
 					<button>
 						<img src="./icons/arrow.svg" alt="Читать  подробнее" width={120} height={120} />
 					</button>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href='/frontend'>
 					<p className="title">
 						<b>Frontend dev</b> <br />
 						портфолио
@@ -562,9 +563,9 @@ export default function Home() {
 					<button>
 						<img src="./icons/arrow.svg" alt="Читать  подробнее" width={120} height={120} />
 					</button>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href='/backend'>
 					<p className="title">
 						<b>backend dev</b> <br />
 						портфолио
@@ -573,7 +574,7 @@ export default function Home() {
 					<button>
 						<img src="./icons/arrow.svg" alt="Читать  подробнее" width={120} height={120} />
 					</button>
-				</div>
+				</Link>
 			</section>
 
 			<Footer />
