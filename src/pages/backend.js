@@ -12,8 +12,8 @@ function Frontend() {
     return (
         <>
             <Head>
-                <title>Ахмедов Ислом Frontend Development</title>
-                <meta name="description" content="Xeond FRONTEND DEVELOPMENT Ислом Ахмедов Портфолио Html, Css Dart - Flutter Javascript - Vue React, Next, Php - Laravel" />
+                <title>Латыпов Артём Backend Development</title>
+                <meta name="description" content="Xeond Backend DEVELOPMENT Латыпов Артём Портфолио Python, Dart, JavaScript, C++" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 <link rel="icon" href="/favicon.ico" />
@@ -24,7 +24,7 @@ function Frontend() {
             <div className="mobile-margin"></div>
 
             <section>
-                <div className="portfolio-header frontend">
+                <div className="portfolio-header backend">
                     <div className="mobile-hide d-flex justify-content-between align-content-center">
                         <Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
 
@@ -51,19 +51,19 @@ function Frontend() {
 
                     <div className="bottom">
                         <h1 className="title">
-                            Ислом <br />
-                            ахмедов
+                            Латыпов <br />
+                            артём
                         </h1>
 
                         <h2 className="title second mobile-hide">
-                            FRONTEND <br />
+                            BACKEND <br />
                             DEVELOPMENT
                         </h2>
                     </div>
 
                     <div className="d-flex justify-content-end mobile-show">
                         <h2 className="title second">
-                            FRONTEND <br />
+                            BACKEND <br />
                             DEVELOPMENT
                         </h2>
                     </div>
@@ -77,18 +77,17 @@ function Frontend() {
                     </p>
 
                     <p className="top">
-                        <b>Html, Css</b> <br />
-                        Dart - Flutter <br />
-                        Javascript - Vue <br />
-                        React, Next <br />
-                        Php - Laravel <br />
+                        Python, <br />
+                        Dart, <br />
+                        JavaScript, <br />
+                        C++ <br />
                     </p>
                 </div>
 
                 <div className="card">
                     <p className="top">
-                        Опыта в Develop
-                        разработке
+                        языков знающих
+                        в совершенстве
                     </p>
 
                     <p className="bottom">
@@ -98,19 +97,19 @@ function Frontend() {
 
                 <div className="card">
                     <p className="top">
-                        успешно завершенных
-                        больших проектов
+                        опыта работы в
+                        разработке
                     </p>
 
                     <p className="bottom">
-                        15+
+                        2+
                     </p>
                 </div>
 
                 <div className="card">
                     <p className="top">
-                        В совершенстве
-                        владения языков
+                        больших завершенных
+                        проектов
                     </p>
 
                     <p className="bottom">
@@ -122,14 +121,14 @@ function Frontend() {
             <section className="projects">
                 <div className="project-row">
                     <div className="project-img">
-                        <img src="./images/portfolio/frontend_1.png" alt="Betrim - Пример Frontend Работы" />
+                        <img src="./images/portfolio/backend_1.png" alt="Betrim - Пример Frontend Работы" />
                     </div>
 
                     <div className="card">
                         <div>
                             <div className="d-flex justify-content-between align-items-center mb-10">
                                 <h3 className="title">
-                                    Betrim
+                                    Colibri-tattoo
                                 </h3>
 
                                 <div className="circles primary">
@@ -138,10 +137,6 @@ function Frontend() {
                                     <div></div>
                                 </div>
                             </div>
-
-                            <p className="description">
-                                Автоматизация заправок с интеграцией оплаты через Payme, Click и налоговую
-                            </p>
                         </div>
 
                         <div className="d-flex flex-wrap gap-10">
@@ -150,7 +145,7 @@ function Frontend() {
                                     Роль
                                 </div>
                                 <div className="bottom">
-                                    Полностью курировал проект от начала до конца.
+                                    Архитектура, код, тестирование, интеграции.
                                 </div>
                             </div>
 
@@ -159,8 +154,7 @@ function Frontend() {
                                     Используемый стек
                                 </div>
                                 <div className="bottom">
-                                    React, Laravel, <br />
-                                    Electron, Flutter.
+                                    Python, Django, PostgreSQL, Celery, Bot.py, React.
                                 </div>
                             </div>
 
@@ -169,7 +163,7 @@ function Frontend() {
                                     Результаты
                                 </div>
                                 <div className="bottom">
-                                    Приложение автоматизирует оплату и генерирует отчеты для кассиров и бухгалтерии.
+                                    Полная автоматизация бронирования, автоматическое обновление контента
                                 </div>
                             </div>
 
@@ -187,14 +181,14 @@ function Frontend() {
 
                 <div className="project-row">
                     <div className="project-img">
-                        <img src="./images/portfolio/frontend_2.png" alt="Betrim - Пример Frontend Работы" />
+                        <img src="./images/portfolio/backend_2.png" alt="Betrim - Пример Frontend Работы" />
                     </div>
 
                     <div className="card">
                         <div>
                             <div className="d-flex justify-content-between align-items-center mb-10">
                                 <h3 className="title">
-                                    Mdokon
+                                    makro
                                 </h3>
 
                                 <div className="circles primary">
@@ -203,141 +197,6 @@ function Frontend() {
                                     <div></div>
                                 </div>
                             </div>
-
-                            <p className="description">
-                                Автоматизация торговых точек
-                            </p>
-                        </div>
-
-                        <div className="d-flex flex-wrap gap-10">
-                            <div className="card-content">
-                                <div className="top">
-                                    Роль
-                                </div>
-                                <div className="bottom">
-                                    Разрабатывал web и мобильное приложение
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Используемый стек
-                                </div>
-                                <div className="bottom">
-                                    React, Electron, Flutter
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Результаты
-                                </div>
-                                <div className="bottom">
-                                    Автоматизация всех бизнес процессов магазина
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Ссылка
-                                </div>
-                                <div className="bottom">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="project-row">
-                    <div className="project-img">
-                        <img src="./images/portfolio/frontend_3.png" alt="Betrim - Пример Frontend Работы" />
-                    </div>
-
-                    <div className="card">
-                        <div>
-                            <div className="d-flex justify-content-between align-items-center mb-10">
-                                <h3 className="title">
-                                    Anorbank <br />
-                                    & IpotekaBank
-                                </h3>
-
-                                <div className="circles primary">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-
-                            <p className="description">
-                                Документооборот банка
-                            </p>
-                        </div>
-
-                        <div className="d-flex flex-wrap gap-10">
-                            <div className="card-content">
-                                <div className="top">
-                                    Роль
-                                </div>
-                                <div className="bottom">
-                                    Разработка и поддержка web приложения
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Используемый стек
-                                </div>
-                                <div className="bottom">
-                                    TypeScript, Vue
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Результаты
-                                </div>
-                                <div className="bottom">
-                                    Контроль всех документов онлайн и электронными подписями
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <div className="top">
-                                    Ссылка
-                                </div>
-                                <div className="bottom">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="project-row">
-                    <div className="project-img">
-                        <img src="./images/portfolio/frontend_4.png" alt="Betrim - Пример Frontend Работы" />
-                    </div>
-
-                    <div className="card">
-                        <div>
-                            <div className="d-flex justify-content-between align-items-center mb-10">
-                                <h3 className="title">
-                                    Vonus
-                                </h3>
-
-                                <div className="circles primary">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-
-                            <p className="description">
-                                Фронтенд частью приложения
-                            </p>
                         </div>
 
                         <div className="d-flex flex-wrap gap-10">
@@ -355,7 +214,7 @@ function Frontend() {
                                     Используемый стек
                                 </div>
                                 <div className="bottom">
-                                    Javascript, React
+                                    Dart, Flutter, dio.dart.
                                 </div>
                             </div>
 
@@ -364,7 +223,7 @@ function Frontend() {
                                     Результаты
                                 </div>
                                 <div className="bottom">
-                                    Биржа с возможностью просмотра текущей цены и покупкой криптовалюты
+                                    Приложение для системы бонусов в сети магазинов макро
                                 </div>
                             </div>
 
@@ -383,14 +242,14 @@ function Frontend() {
 
                 <div className="project-row">
                     <div className="project-img">
-                        <img src="./images/portfolio/frontend_5.png" alt="Betrim - Пример Frontend Работы" />
+                        <img src="./images/portfolio/backend_3.png" alt="Betrim - Пример Frontend Работы" />
                     </div>
 
                     <div className="card">
                         <div>
                             <div className="d-flex justify-content-between align-items-center mb-10">
                                 <h3 className="title">
-                                    Mison
+                                    T-cats
                                 </h3>
 
                                 <div className="circles primary">
@@ -399,10 +258,6 @@ function Frontend() {
                                     <div></div>
                                 </div>
                             </div>
-
-                            <p className="description">
-                                Автоматизация ресторанов и общепитов
-                            </p>
                         </div>
 
                         <div className="d-flex flex-wrap gap-10">
@@ -411,8 +266,7 @@ function Frontend() {
                                     Роль
                                 </div>
                                 <div className="bottom">
-                                    Приложения для официантов, курьеров и владельцев
-                                    Telegram bot, qr menu и т.д
+                                    Архитектура, код, тестирование, интеграции
                                 </div>
                             </div>
 
@@ -421,7 +275,7 @@ function Frontend() {
                                     Используемый стек
                                 </div>
                                 <div className="bottom">
-                                    React, React Native, Electron, Flutter
+                                    Python, Django, PostgreSql.
                                 </div>
                             </div>
 
@@ -430,7 +284,7 @@ function Frontend() {
                                     Результаты
                                 </div>
                                 <div className="bottom">
-                                    Автоматизация всех бизнес процессов магазина
+                                    Удобный оборот билетов через сайт, с полной минимализацией действий.
                                 </div>
                             </div>
 
@@ -451,7 +305,7 @@ function Frontend() {
                 <div className="card">
                     <div className="title">
                         Оставить заявку <br />
-                        на Frontend разработку
+                        на Backend разработку
                     </div>
 
                     <button>

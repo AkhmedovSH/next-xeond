@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
+import { useEffect, useState } from 'react';
 import Slider from "react-slick";
 
 import Footer from '../components/Footer'
@@ -10,7 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-	const { toggleTheme } = useTheme();
+	const { theme, toggleTheme } = useTheme();
+	const [isVisible, setIsVisible] = useState(false);
+	const [showTooltip, setShowTooltip] = useState(false);
 
 	const carousel_items = [
 		'ESTY',
@@ -75,6 +76,21 @@ export default function Home() {
 				});
 			}
 		}
+
+		const handleScroll = () => {
+			if (window.scrollY > 385) {
+				setIsVisible(true);
+			} else {
+				setIsVisible(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		// Убираем обработчик при размонтировании
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
 	}, []);
 
 	return (
@@ -102,10 +118,18 @@ export default function Home() {
 					</div>
 
 					<ul className="navigation">
-						<li>о нас</li>
-						<li>наши кейсы</li>
-						<li>исполнители</li>
-						<li>тарифы</li>
+						<Link href="#about_us">
+							<li>о нас</li>
+						</Link>
+						<Link href="#our_cases">
+							<li>наши кейсы</li>
+						</Link>
+						<Link href="#performers">
+							<li>исполнители</li>
+						</Link>
+						<Link href="#tariffs">
+							<li>тарифы</li>
+						</Link>
 					</ul>
 
 					<h1 className="title">
@@ -116,37 +140,43 @@ export default function Home() {
 
 				<div className="right_card">
 					<Slider {...settings} arrows={false}>
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
+						{[1, 2, 3].map((item, index) => (
+							<div className="right_card_item" key={index}>
+								<img src="./images/carousel_1.png" className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+
+								<div className="left">
+									<div className="d-flex gap-10">
+										<button className="top-button" onMouseOver={() => setShowTooltip(true)} onMouseOut={() => setShowTooltip(false)}>
+											<img src="./icons/star.svg" alt="" />
+										</button>
+
+										<button className="top-button second">
+											<img src="./icons/arrow_white.svg" alt="" />
+										</button>
+									</div>
+
+									<div className={`carousel-description ${showTooltip ? 'active' : ''}`}>
+										<span className="text-primary">Paul Patisserie</span> <br />
+										redesign concept
+									</div>
+								</div>
+
+								<div className="right">
+									<button className="top-button second">
+										RU
+									</button>
+
+									<button className="top-button" onClick={toggleTheme}>
+										{theme === 'light' ?
+											<img src="./icons/dark.svg" alt="" />
+											:
+											<img src="./icons/light.svg" className="second" alt="" />
+										}
+									</button>
+								</div>
+							</div>
+						))}
 					</Slider>
-
-					<div className="left">
-						<div className="d-flex gap-10">
-							<button className="top-button">
-								<img src="./icons/star.svg" alt="" />
-							</button>
-
-							<button className="top-button second">
-								<img src="./icons/arrow_white.svg" alt="" />
-							</button>
-						</div>
-
-						<div className="carousel-description">
-							<span className="text-primary">Paul Patisserie</span> <br />
-							redesign concept
-						</div>
-					</div>
-
-					<div className="right">
-						<button className="top-button second">
-							RU
-						</button>
-
-						<button className="top-button" onClick={toggleTheme}>
-							<img src="./icons/dark.svg" alt="" />
-						</button>
-					</div>
 				</div>
 			</section>
 
@@ -155,11 +185,18 @@ export default function Home() {
 					<img src="./images/carousel_1.png" alt="" height={400} />
 
 					<ul className="navigation">
-						<li>о нас</li>
-						<li>наши кейсы</li>
-						<li>исполнители</li>
-						<li>тарифы</li>
-					</ul>
+						<Link href="#about_us">
+							<li>о нас</li>
+						</Link>
+						<Link href="#our_cases">
+							<li>наши кейсы</li>
+						</Link>
+						<Link href="#performers">
+							<li>исполнители</li>
+						</Link>
+						<Link href="#tariffs">
+							<li>тарифы</li>
+						</Link>					</ul>
 				</div>
 
 				<div className="card">
@@ -176,6 +213,27 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<ul className={`bottom-bar ${isVisible && 'active'}`}>
+				<Link href="#about_us">
+					<li>о нас</li>
+				</Link>
+				<div className="point" />
+				<Link href="#our_cases">
+					<li>наши кейсы</li>
+				</Link>
+				<div className="point" />
+				<Link href="#performers">
+					<li>исполнители</li>
+				</Link>
+				<div className="point" />
+				<Link href="#tariffs">
+					<li>тарифы</li>
+				</Link>
+				<button>
+					RU
+				</button>
+			</ul>
 
 			<section className="block_2">
 				<div className="scroller" dataSpeed="fast">
@@ -196,7 +254,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="block_3">
+			<section className="block_3" id="about_us">
 				<div className="card">
 					<p>
 						<b>Xeond</b> — это инновационная студия, которая объединяет искусство дизайна и мощь технологий для создания уникальных цифровых решений. Мы специализируемся на разработке игр, сайтов, приложений и сервисов, предоставляя полный цикл услуг — от концепции до готового продукта.
@@ -251,30 +309,33 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="block_5 block_01">
+			<section className="block_5 block_01" id="our_cases">
 				<div className="right_card">
 					<Slider {...settings} arrows={false}>
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
-						<img src="./images/carousel_1.png" alt="Пример работы компании xeond" height={1000} />
+						{[1, 2, 3].map((item, index) => (
+							<div className="right_card_item" key={index}>
+								<img src="./images/carousel_1.png" className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+
+								<div className="left">
+									<div className="d-flex gap-10">
+										<button className="top-button" onMouseOver={() => setShowTooltip(true)} onMouseOut={() => setShowTooltip(false)}>
+											<img src="./icons/star.svg" alt="" />
+										</button>
+
+										<button className="top-button second">
+											<img src="./icons/arrow_white.svg" alt="" />
+										</button>
+									</div>
+
+									<div className={`carousel-description ${showTooltip ? 'active' : ''}`}>
+										<span className="text-primary">Paul Patisserie</span> <br />
+										redesign concept
+									</div>
+								</div>
+
+							</div>
+						))}
 					</Slider>
-
-					<div className="left">
-						<div className="d-flex gap-10">
-							<button className="top-button">
-								<img src="./icons/star.svg" alt="" />
-							</button>
-
-							<button className="top-button second">
-								<img src="./icons/arrow_white.svg" alt="" />
-							</button>
-						</div>
-
-						<div className="carousel-description">
-							<span className="text-orange">Кейсы</span> наших <br />
-							дизайнеров
-						</div>
-					</div>
 				</div>
 
 				<div className="card">
@@ -296,8 +357,8 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="block_6">
-				<div className="card">
+			<section className="block_6" id="performers">
+				<Link className="card" href="/ux">
 					<p className="top">
 						<b>Ux/ui Диз. -</b> <br />
 						Исламов Камрон
@@ -306,9 +367,9 @@ export default function Home() {
 					<div className="text-end">
 						<img src='./images/specialist_1.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
 					</div>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href="/graphic">
 					<p className="top">
 						<b>граф. диз. -</b> <br />
 						абдиев амир
@@ -317,9 +378,9 @@ export default function Home() {
 					<div className="text-end">
 						<img src='./images/specialist_2.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
 					</div>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href="/backend">
 					<p className="top">
 						<b>backend dev-</b> <br />
 						латыпов артём
@@ -328,9 +389,9 @@ export default function Home() {
 					<div className="text-end">
 						<img src='./images/specialist_3.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
 					</div>
-				</div>
+				</Link>
 
-				<div className="card">
+				<Link className="card" href="/frontend">
 					<p className="top">
 						<b>Frontend dev -</b> <br />
 						ислом ахмедов
@@ -339,7 +400,7 @@ export default function Home() {
 					<div className="text-end">
 						<img src='./images/specialist_4.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
 					</div>
-				</div>
+				</Link>
 			</section>
 
 			<section className="block_7">
@@ -361,7 +422,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="block_8">
+			<section className="block_8" id="tariffs">
 				<div className="card">
 					<p className="title">
 						ux/ui дизайн + <span className="text-primary">web</span>
@@ -390,7 +451,13 @@ export default function Home() {
 								<span className="text-primary">+WEB</span> в подарок
 							</p>
 							<button className="right-btn">
-								выбрать
+								<span>
+									выбрать
+								</span>
+
+								<div className="star">
+									<img src="./icons/button_star.svg" alt="" />
+								</div>
 							</button>
 						</div>
 
@@ -432,7 +499,13 @@ export default function Home() {
 								</b>
 							</p>
 							<button className="right-btn">
-								выбрать
+								<span>
+									выбрать
+								</span>
+
+								<div className="star">
+									<img src="./icons/button_star.svg" alt="" />
+								</div>
 							</button>
 						</div>
 
@@ -468,7 +541,13 @@ export default function Home() {
 								</b>
 							</p>
 							<button className="right-btn">
-								выбрать
+								<span>
+									выбрать
+								</span>
+
+								<div className="star">
+									<img src="./icons/button_star.svg" alt="" />
+								</div>
 							</button>
 						</div>
 
@@ -504,7 +583,13 @@ export default function Home() {
 								</b>
 							</p>
 							<button className="right-btn">
-								выбрать
+								<span>
+									выбрать
+								</span>
+
+								<div className="star">
+									<img src="./icons/button_star.svg" alt="" />
+								</div>
 							</button>
 						</div>
 
@@ -526,7 +611,13 @@ export default function Home() {
 					</div>
 
 					<button>
-						оставить заявку
+						<span>
+							оставить заявку
+						</span>
+
+						<div className="star">
+							<img src="./icons/button_star.svg" alt="" />
+						</div>
 					</button>
 				</div>
 			</section>

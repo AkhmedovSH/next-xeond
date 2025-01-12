@@ -10,6 +10,7 @@ body.dark header {
 }
 
 body.dark .card,
+body.dark .block_01 .left_card,
 body.dark .block_2,
 body.dark footer {
 	background-color: #0D0D0D;
@@ -17,4 +18,18 @@ body.dark footer {
 
 body.dark footer .social-media {
 	background-color: #161616;
+}
+
+body.dark footer .social-media img,
+body.dark .block_8 .card .left-btn img {
+	filter: var(--filter-white);
+}
+
+body.dark .block_8 .card .left-btn {
+	border: 1px solid #fff;
+}
+
+body.dark .bottom-bar {
+	border: 1px solid #373737;
+	background: rgba(0, 0, 0, 0.70);
 }

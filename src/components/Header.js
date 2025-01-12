@@ -2,7 +2,7 @@ import React from 'react'
 import { useTheme } from '../ThemeContext';
 
 function Header() {
-    const { toggleTheme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <header>
@@ -16,7 +16,11 @@ function Header() {
                 </a>
 
                 <button className="header-button" onClick={toggleTheme}>
-                    <img src="./icons/dark.svg" alt="Темная тема" width={24} height={24} />
+                    {theme === 'light' ?
+                        <img src="./icons/dark.svg" alt="" width={24} height={24} />
+                        :
+                        <img src="./icons/light.svg" alt="" width={24} height={24} />
+                    }
                 </button>
             </div>
         </header>

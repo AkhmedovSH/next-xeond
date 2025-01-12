@@ -259,11 +259,11 @@
         width: 42px;
         height: 42px;
         border-radius: 25px;
-        background: rgba(217, 217, 217, 0.50);
+        background: rgba(38, 38, 38, 0.50);
         border: none;
 
         font-size: 16px;
-        color: #000;
+        color: #fff;
     }
 
     .block_01.mobile-show {
@@ -303,5 +303,63 @@
         color: #fff;
         font-size: 16px;
         font-weight: 400;
+    }
+
+    .project-row {
+        flex-wrap: wrap;
+    }
+
+    .project-img {
+        width: 100%;
+    }
+
+    .project-row .card {
+        width: 100%;
+    }
+
+    .mobile-margin {
+        margin-top: 120px;
+    }
+
+    .portfolio-header {
+        min-height: 400px;
+        padding: 20px;
+    }
+
+    .portfolio-header .bottom {
+        bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .portfolio-header .title {
+        font-size: 24px;
+    }
+
+    .portfolio-header .title.second {
+        font-size: 24px;
+    }
+
+    .project-row .card .description {
+        margin-bottom: 20px;
+    }
+
+    .project-row .card .title {
+        font-size: 24px;
+    }
+
+    .project-row .card .card-content {
+        width: 100%;
+    }
+
+    .project-row .card .card-content .top {
+        font-size: 16px;
+    }
+
+    .project-row .card .card-content .bottom {
+        font-size: 16px;
+    }
+
+    .bottom-bar {
+        display: none;
     }
 }
