@@ -259,11 +259,10 @@
         width: 42px;
         height: 42px;
         border-radius: 25px;
-        background: rgba(38, 38, 38, 0.50);
+        background: rgba(217, 217, 217, 0.50);
         border: none;
-
         font-size: 16px;
-        color: #fff;
+        color: #000;
     }
 
     .block_01.mobile-show {
