@@ -15,11 +15,11 @@ function Footer() {
 
                 <div className="col-lg-6 col-sm-12">
                     <div className="social-medias">
-                        <a className="social-media" href="https://t.me/pdd_Uzbekiztan" target="_blank">
+                        <a className="social-media" href="https://t.me/Xe0nd" target="_blank">
                             Telegram
                             <img src="./icons/telegram.svg" alt="Иконка телеграмма" />
                         </a>
-                        <a className="social-media" href="https://www.instagram.com/pdd.uz" target="_blank">
+                        <a className="social-media" href="https://www.instagram.com/xeond?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                             Instagram
                             <img src="./icons/instagram.svg" alt="Иконка инстаграма" />
                         </a>

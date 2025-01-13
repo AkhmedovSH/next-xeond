@@ -668,7 +668,6 @@ section {
 
 .block_8 .card .description {
 	color: var(--text-color);
-	font-family: "Vela Sans GX";
 	font-size: 24px;
 	font-weight: 400;
 }
@@ -699,7 +698,6 @@ section {
 	padding: 0 20px;
 
 	color: var(--text-color);
-	font-family: "Vela Sans GX";
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 25px;
@@ -794,7 +792,6 @@ section {
 
 	color: #FFF;
 
-	font-family: "Vela Sans GX";
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 25px;

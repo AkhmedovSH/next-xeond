@@ -267,6 +267,25 @@ export default function Home() {
 				</div>
 			</section>
 
+			<section className="block_9">
+				<div className="card">
+					<div className="title">
+						работаем по-проектно <br />
+						и без посредников
+					</div>
+
+					<button>
+						<span>
+							оставить заявку
+						</span>
+
+						<div className="star">
+							<img src="./icons/button_star.svg" alt="" />
+						</div>
+					</button>
+				</div>
+			</section>
+
 			<section className="block_4">
 				<div className="card">
 					<p className="top">
@@ -601,25 +620,6 @@ export default function Home() {
 					</div>
 				</div>
 
-			</section>
-
-			<section className="block_9">
-				<div className="card">
-					<div className="title">
-						работаем по-проектно <br />
-						и без посредников
-					</div>
-
-					<button>
-						<span>
-							оставить заявку
-						</span>
-
-						<div className="star">
-							<img src="./icons/button_star.svg" alt="" />
-						</div>
-					</button>
-				</div>
 			</section>
 
 			<section className="block_10">
