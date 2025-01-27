@@ -1,3 +1,5 @@
+'use client'; // Важно для Next.js 13+ в компонентах "app router"
+
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Slider from "react-slick";
@@ -7,8 +9,13 @@ import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ReactLenis, useLenis } from 'lenis/react'
 
 export default function Home() {
+	const lenis = useLenis(({ scroll }) => {
+		// called every scroll
+	})
+
 	const { theme, toggleTheme } = useTheme();
 	const [isVisible, setIsVisible] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -43,7 +50,6 @@ export default function Home() {
 				},
 			},
 		],
-
 	};
 
 
@@ -94,7 +100,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
+		<ReactLenis root>
 			<Head>
 				<title>Xeond</title>
 				<meta name="description" content="XEOND - основанная в 2024 году, представляет собой инновационную компанию, специализирующуюся в дизайне. Наша миссия - создание пространств и визуальных решений" />
@@ -688,6 +694,6 @@ export default function Home() {
 			</section>
 
 			<Footer />
-		</div>
+		</ReactLenis>
 	);
 }
