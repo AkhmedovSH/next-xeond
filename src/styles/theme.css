@@ -39,6 +39,6 @@ body.dark .header-button {
 	color: #fff;
 }
 
-.project-images-card {
+body.dark .project-images-card {
 	background-color: #1A1A1A;
 }
