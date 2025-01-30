@@ -1,5 +1,7 @@
 cd ../var/www
 
+git pull
+
 sudo npm install
 
 sudo npm run build
