@@ -809,7 +809,7 @@ section {
 .block_9 button .star {
 	position: absolute;
 	top: 70%;
-	right: 50%;
+	right: 15%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
 }
@@ -1032,6 +1032,16 @@ header {
 	justify-content: space-between;
 }
 
+.project-row.second .card {
+	width: 100%;
+	height: 100%;
+	min-height: 600px;
+	background-image: none;
+
+	gap: 20px;
+}
+
+
 .project-row .card .title {
 	color: #1967F2;
 	font-family: 'Unbounded';
@@ -1040,6 +1050,7 @@ header {
 	font-weight: 600;
 	line-height: normal;
 	text-transform: uppercase;
+	margin-bottom: 0;
 }
 
 .project-row .card .card-content {
@@ -1075,6 +1086,37 @@ header {
 .project-img {
 	width: calc(50%);
 	text-align: center;
+}
+
+.project-images {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.project-images-card {
+	width: calc(50% - 10px);
+	padding: 20px;
+	background-color: #F2F2F2;
+	border-radius: 20px;
+	/* min-height: 560px; */
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.project-images img {
+	width: calc(25% - 15px);
+}
+
+.project-images .project-images-card img {
+	width: calc(33% - 11px);
+	height: fit-content;
+}
+
+.project-row.second .project-img {
+	width: 100%;
 }
 
 .project-img img {

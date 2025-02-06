@@ -9,11 +9,8 @@ import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactLenis, useLenis } from 'lenis/react'
-import Request from '../components/request';
 
 export default function Home() {
-
 	const { theme, toggleTheme } = useTheme();
 	const [isVisible, setIsVisible] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -98,7 +95,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<ReactLenis root>
+		<div>
 			<Head>
 				<title>Xeond</title>
 				<meta name="description" content="XEOND - основанная в 2024 году, представляет собой инновационную компанию, специализирующуюся в дизайне. Наша миссия - создание пространств и визуальных решений" />
@@ -697,6 +694,6 @@ export default function Home() {
 			</section>
 
 			<Footer />
-		</ReactLenis>
+		</div>
 	);
 }

@@ -1,368 +1,395 @@
 @media (max-width: 1800px) {}
 
 @media (max-width: 576px) {
-    .mobile-hide {
-        display: none !important;
-    }
-
-    .mobile-show {
-        display: inherit !important;
-    }
-
-    .tag-list li {
-        font-size: 24px;
-    }
-
-    .tag-list li .point {
-        width: 16px;
-        height: 16px;
-    }
-
-    .circles div {
-        width: 30px;
-        height: 30px;
-    }
-
-    .block_3 p {
-        font-size: 16px;
-        line-height: normal;
-    }
-
-    .block_4 {
-        overflow: auto;
-    }
-
-    .block_4 .card {
-        min-width: 350px;
-        width: 100%;
-        min-height: 250px;
-        padding: 15px;
-    }
-
-    .block_4 .top {
-        font-size: 24px;
-    }
-
-    .block_4 .bottom {
-        font-size: 96px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .block_5 {
-        flex-wrap: wrap;
-    }
-
-    .block_5 .card {
-        min-height: 250px;
-    }
-
-    .block_5 .card .d-flex {
-        flex-wrap: wrap;
-    }
-
-    .block_5 .card .title {
-        font-size: 24px;
-    }
-
-    .block_5 .card .description {
-        font-size: 16px;
-    }
-
-    .block_6 {
-        flex-wrap: wrap;
-    }
-
-    .block_6 .card {
-        width: 100%;
-        font-size: 24px;
-    }
-
-    .block_7 {
-        font-size: 20px;
-    }
-
-    .block_7 .card {
-        flex-direction: column;
-        text-align: center;
-        font-weight: 600;
-        gap: 20px;
-    }
-
-    .big-circles div {
-        width: 146px;
-        height: 146px;
-    }
-
-    .big-circles.primary:hover div:nth-child(2),
-    .big-circles.primary:hover div:nth-child(3),
-    .big-circles.primary:hover div:nth-child(4) {
-        margin-left: -73px;
-    }
-
-    .big-circles.primary div:nth-child(2) {
-        margin-left: -73px;
-    }
-
-    .big-circles.primary div:nth-child(3) {
-        margin-left: -73px;
-    }
-
-    .big-circles.primary div:nth-child(4) {
-        margin-left: -73px;
-    }
-
-    .block_8 .card {
-        width: 100%;
-    }
-
-    .block_8 .card .title {
-        font-size: 24px;
-    }
-
-    .block_8 .card .images img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .block_8 .card .description {
-        font-size: 16px;
-    }
-
-    .block_8 .card .d-flex {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .block_8 .card .right {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .block_8 .card .text-center {
-        text-align: start;
-    }
-
-    .block_8 .card .text-end {
-        text-align: start !important;
-    }
-
-    .block_8 .card .text-end br {
-        display: none;
-    }
-
-    .block_8 .card .left-btn {
-        height: 80px;
-        max-width: 100%;
-        font-size: 16px;
-    }
-
-    .block_8 .card .right-btn {
-        height: 80px;
-        max-width: 100%;
-        font-size: 16px;
-    }
-
-    .block_9 .card {
-        min-height: 490px;
-        border-radius: 20px;
-        background-image: url('/images/block_9_bg_1.png');
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-size: 320px 155px;
-
-        justify-content: flex-start;
-    }
-
-    .block_9 .card .title {
-        font-size: 24px;
-    }
-
-    .block_9 .card button {
-        height: 80px;
-        font-size: 16px;
-    }
-
-    .block_10 {
-        overflow: auto;
-    }
-
-    .block_10 .card {
-        min-width: 350px;
-        width: 100%;
-    }
-
-    footer {
-        height: 100%;
-        background-position: bottom 50px center;
-    }
-
-    footer .social-medias {
-        flex-direction: column;
-    }
-
-    footer .social-media {
-        font-size: 24px;
-        height: 195px;
-    }
-
-    footer .social-media img {
-        width: 50px;
-        height: 50px;
-    }
-
-    footer .mobile-show {
-        margin-top: 400px;
-        justify-content: center;
-    }
-
-    footer .xeond {
-        text-align: center;
-        font-size: 14px;
-        padding: 0;
-    }
-
-
-    footer .xeond_title {
-        font-size: 36px;
-    }
-
-    header {
-        display: flex;
-        justify-content: space-between;
-
-        position: fixed;
-        top: 0;
-        z-index: 2;
-        width: 100%;
-        padding: 25px;
-
-        border-radius: 0px 0px 25px 25px;
-        border-bottom: 1px solid rgba(217, 217, 217, 0.20);
-        background: rgba(255, 255, 255, 0.80);
-        backdrop-filter: blur(25px);
-    }
-
-    header .right {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .header-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 42px;
-        border-radius: 25px;
-        background: rgba(217, 217, 217, 0.50);
-        border: none;
-        font-size: 16px;
-        color: #000;
-    }
-
-    .block_01.mobile-show {
-        margin-top: 120px;
-        display: flex !important;
-        flex-direction: column;
-        gap: 20px;
-        min-height: auto;
-    }
-
-    .block_01.mobile-show .card {
-        background-image: url('/images/bg_logo.png');
-        background-repeat: no-repeat;
-        background-position: right;
-        background-size: contain;
-    }
-
-    body.dark .block_01.mobile-show .card {
-        background-image: url('/images/bg_logo_dark.png');
-    }
-
-    .block_01.mobile-show img {
-        height: 400px;
-        object-fit: cover;
-        border-radius: 30px;
-    }
-
-    .block_01.mobile-show .carousel {
-        position: relative;
-    }
-
-    .block_01.mobile-show .carousel .navigation {
-        position: absolute;
-        bottom: 25px;
-        left: 25px;
-        z-index: 1;
-        gap: 2px;
-    }
-
-    .block_01.mobile-show .carousel .navigation li {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 400;
-    }
-
-    .project-row {
-        flex-wrap: wrap;
-    }
-
-    .project-img {
-        width: 100%;
-    }
-
-    .project-row .card {
-        width: 100%;
-    }
-
-    .mobile-margin {
-        margin-top: 120px;
-    }
-
-    .portfolio-header {
-        min-height: 400px;
-        padding: 20px;
-    }
-
-    .portfolio-header .bottom {
-        bottom: 20px;
-        padding: 0 20px;
-    }
-
-    .portfolio-header .title {
-        font-size: 24px;
-    }
-
-    .portfolio-header .title.second {
-        font-size: 24px;
-    }
-
-    .project-row .card .description {
-        margin-bottom: 20px;
-    }
-
-    .project-row .card .title {
-        font-size: 24px;
-    }
-
-    .project-row .card .card-content {
-        width: 100%;
-    }
-
-    .project-row .card .card-content .top {
-        font-size: 16px;
-    }
-
-    .project-row .card .card-content .bottom {
-        font-size: 16px;
-    }
-
-    .bottom-bar {
-        display: none;
-    }
+	body {
+		font-size: 16px;
+	}
+
+	.mobile-hide {
+		display: none !important;
+	}
+
+	.mobile-show {
+		display: inherit !important;
+	}
+
+	.tag-list li {
+		font-size: 24px;
+	}
+
+	.tag-list li .point {
+		width: 16px;
+		height: 16px;
+	}
+
+	.circles div {
+		width: 30px;
+		height: 30px;
+	}
+
+	.block_3 p {
+		font-size: 16px;
+		line-height: normal;
+	}
+
+	.block_4 {
+		overflow: auto;
+	}
+
+	.block_4 .card {
+		min-width: 350px;
+		width: 100%;
+		min-height: 250px;
+		padding: 15px;
+	}
+
+	.block_4 .top {
+		font-size: 24px;
+	}
+
+	.block_4 .bottom {
+		font-size: 96px;
+	}
+
+	.card {
+		padding: 15px;
+	}
+
+	.block_5 {
+		flex-wrap: wrap;
+	}
+
+	.block_5 .card {
+		min-height: 250px;
+	}
+
+	.block_5 .card .d-flex {
+		flex-wrap: wrap;
+	}
+
+	.block_5 .card .title {
+		font-size: 24px;
+	}
+
+	.block_5 .card .description {
+		font-size: 16px;
+	}
+
+	.block_6 {
+		flex-wrap: wrap;
+	}
+
+	.block_6 .card {
+		width: 100%;
+		font-size: 24px;
+	}
+
+	.block_7 {
+		font-size: 20px;
+	}
+
+	.block_7 .card {
+		flex-direction: column;
+		text-align: center;
+		font-weight: 600;
+		gap: 20px;
+	}
+
+	.big-circles div {
+		width: 146px;
+		height: 146px;
+	}
+
+	.big-circles.primary:hover div:nth-child(2),
+	.big-circles.primary:hover div:nth-child(3),
+	.big-circles.primary:hover div:nth-child(4) {
+		margin-left: -73px;
+	}
+
+	.big-circles.primary div:nth-child(2) {
+		margin-left: -73px;
+	}
+
+	.big-circles.primary div:nth-child(3) {
+		margin-left: -73px;
+	}
+
+	.big-circles.primary div:nth-child(4) {
+		margin-left: -73px;
+	}
+
+	.block_8 .card {
+		width: 100%;
+	}
+
+	.block_8 .card .title {
+		font-size: 24px;
+	}
+
+	.block_8 .card .images img {
+		width: 60px;
+		height: 60px;
+	}
+
+	.block_8 .card .description {
+		font-size: 16px;
+	}
+
+	.block_8 .card .d-flex {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.block_8 .card .right {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.block_8 .card .text-center {
+		text-align: start;
+	}
+
+	.block_8 .card .text-end {
+		text-align: start !important;
+	}
+
+	.block_8 .card .text-end br {
+		display: none;
+	}
+
+	.block_8 .card .left-btn {
+		height: 80px;
+		max-width: 100%;
+		font-size: 16px;
+	}
+
+	.block_8 .card .right-btn {
+		height: 80px;
+		max-width: 100%;
+		font-size: 16px;
+	}
+
+	.block_9 .card {
+		min-height: 490px;
+		border-radius: 20px;
+		background-image: url('/images/block_9_bg_1.png');
+		background-repeat: no-repeat;
+		background-position: bottom center;
+		background-size: 320px 155px;
+
+		justify-content: flex-start;
+	}
+
+	.block_9 .card .title {
+		font-size: 24px;
+	}
+
+	.block_9 .card button {
+		height: 80px;
+		font-size: 16px;
+	}
+
+	.block_10 {
+		overflow: auto;
+	}
+
+	.block_10 .card {
+		min-width: 350px;
+		width: 100%;
+	}
+
+	footer {
+		height: 100%;
+		background-position: bottom 50px center;
+	}
+
+	footer .social-medias {
+		flex-direction: column;
+	}
+
+	footer .social-media {
+		font-size: 24px;
+		height: 195px;
+	}
+
+	footer .social-media img {
+		width: 50px;
+		height: 50px;
+	}
+
+	footer .mobile-show {
+		margin-top: 400px;
+		justify-content: center;
+	}
+
+	footer .xeond {
+		text-align: center;
+		font-size: 14px;
+		padding: 0;
+	}
+
+
+	footer .xeond_title {
+		font-size: 36px;
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+
+		position: fixed;
+		top: 0;
+		z-index: 2;
+		width: 100%;
+		padding: 25px;
+
+		border-radius: 0px 0px 25px 25px;
+		border-bottom: 1px solid rgba(217, 217, 217, 0.20);
+		background: rgba(255, 255, 255, 0.80);
+		backdrop-filter: blur(25px);
+	}
+
+	header .right {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.header-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 25px;
+		background: rgba(217, 217, 217, 0.50);
+		border: none;
+		font-size: 16px;
+		color: #000;
+	}
+
+	.block_01.mobile-show {
+		margin-top: 120px;
+		display: flex !important;
+		flex-direction: column;
+		gap: 20px;
+		min-height: auto;
+	}
+
+	.block_01.mobile-show .card {
+		background-image: url('/images/bg_logo.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: contain;
+	}
+
+	.block_01.mobile-show img {
+		height: 400px;
+		object-fit: cover;
+		border-radius: 30px;
+	}
+
+	.block_01.mobile-show .carousel {
+		position: relative;
+	}
+
+	.block_01.mobile-show .carousel .navigation {
+		position: absolute;
+		bottom: 25px;
+		left: 25px;
+		z-index: 1;
+		gap: 2px;
+	}
+
+	.block_01.mobile-show .carousel .navigation li {
+		color: #fff;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	.project-row {
+		flex-wrap: wrap;
+	}
+
+	.project-img {
+		width: 100%;
+	}
+
+	.project-row .card {
+		width: 100%;
+	}
+
+	.mobile-margin {
+		margin-top: 120px;
+	}
+
+	.portfolio-header {
+		min-height: 400px;
+		padding: 20px;
+	}
+
+	.portfolio-header .bottom {
+		bottom: 20px;
+		padding: 0 20px;
+	}
+
+	.portfolio-header .title {
+		font-size: 24px;
+	}
+
+	.portfolio-header .title.second {
+		font-size: 24px;
+	}
+
+	.project-row .card,
+	.project-row.second .card {
+		min-height: auto;
+		gap: 10px;
+	}
+
+	.project-row .card .description {
+		margin-bottom: 20px;
+		font-size: 16px;
+	}
+
+	.project-row .card .title {
+		font-size: 24px;
+	}
+
+	.project-row .card .card-content {
+		width: 100%;
+	}
+
+	.project-row .card .card-content .top {
+		font-size: 16px;
+	}
+
+	.project-row .card .card-content .bottom {
+		font-size: 16px;
+	}
+
+	.bottom-bar {
+		display: none;
+	}
+
+	.project-images {
+		gap: 10px;
+	}
+
+	.project-images img {
+		width: calc(50% - 5px);
+	}
+
+	.project-images-card {
+		gap: 10px;
+	}
+
+	.project-images-card {
+		width: 100%;
+	}
+
+	.project-images .project-images-card img {
+		width: calc(50% - 5px);
+	}
 }

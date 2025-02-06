@@ -1,4 +1,7 @@
+
 cd ../var/www
+
+git pull
 
 sudo npm install
 
