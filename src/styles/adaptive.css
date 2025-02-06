@@ -280,6 +280,10 @@
         background-size: contain;
     }
 
+    body.dark .block_01.mobile-show .card {
+        background-image: url('/images/bg_logo_dark.png');
+    }
+
     .block_01.mobile-show img {
         height: 400px;
         object-fit: cover;

@@ -10,11 +10,9 @@ import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactLenis, useLenis } from 'lenis/react'
+import Request from '../components/request';
 
 export default function Home() {
-	const lenis = useLenis(({ scroll }) => {
-		// called every scroll
-	})
 
 	const { theme, toggleTheme } = useTheme();
 	const [isVisible, setIsVisible] = useState(false);
@@ -389,8 +387,12 @@ export default function Home() {
 						Исламов Камрон
 					</p>
 
-					<div className="text-end">
+					<div className="position-relative text-end">
 						<img src='./images/specialist_1.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
+
+						<div className="arrow-circle">
+							<img src='./icons/arrow_right.svg' alt='Arrow' width={136} height={136} />
+						</div>
 					</div>
 				</Link>
 
@@ -400,8 +402,12 @@ export default function Home() {
 						абдиев амир
 					</p>
 
-					<div className="text-end">
+					<div className="position-relative text-end">
 						<img src='./images/specialist_2.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
+
+						<div className="arrow-circle">
+							<img src='./icons/arrow_right.svg' alt='Arrow' width={136} height={136} />
+						</div>
 					</div>
 				</Link>
 
@@ -411,8 +417,12 @@ export default function Home() {
 						латыпов артём
 					</p>
 
-					<div className="text-end">
+					<div className="position-relative text-end">
 						<img src='./images/specialist_3.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
+
+						<div className="arrow-circle">
+							<img src='./icons/arrow_right.svg' alt='Arrow' width={136} height={136} />
+						</div>
 					</div>
 				</Link>
 
@@ -422,8 +432,12 @@ export default function Home() {
 						ислом ахмедов
 					</p>
 
-					<div className="text-end">
+					<div className="position-relative text-end">
 						<img src='./images/specialist_4.png' alt='Ux/ui Дизайнер - Исламов Камрон' width={240} height={240} />
+
+						<div className="arrow-circle">
+							<img src='./icons/arrow_right.svg' alt='Arrow' width={136} height={136} />
+						</div>
 					</div>
 				</Link>
 			</section>
@@ -628,24 +642,13 @@ export default function Home() {
 
 			</section>
 
-			<section className="block_9">
-				<div className="card">
-					<div className="title">
+			<Request
+				title={
+					<p>
 						работаем по-проектно <br />
-						и без посредников
-					</div>
-
-					<button>
-						<span>
-							оставить заявку
-						</span>
-
-						<div className="star">
-							<img src="./icons/button_star.svg" alt="" />
-						</div>
-					</button>
-				</div>
-			</section>
+						и без посредников</p>
+				}
+			/>
 
 			<section className="block_10">
 				<Link className="card" href='/ux'>

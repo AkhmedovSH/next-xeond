@@ -38,3 +38,9 @@ body.dark .header-button {
 	background: rgba(38, 38, 38, 0.50);
 	color: #fff;
 }
+
+body.dark .block_01 .left_card,
+body.dark .project-row .card,
+body.dark .block_5 .card {
+	background-image: url('/images/bg_logo_dark.png');
+}
