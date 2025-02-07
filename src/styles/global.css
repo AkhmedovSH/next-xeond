@@ -79,6 +79,7 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
+	transition: 0s;
 }
 
 p {
@@ -88,6 +89,22 @@ p {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 
 .d-flex {
@@ -286,6 +303,7 @@ section {
 	min-height: 1000px;
 	object-fit: cover;
 	border-radius: 30px;
+	width: 100%;
 }
 
 .block_01 .right_card .left {
@@ -580,6 +598,7 @@ section {
 }
 
 .block_5 .right_card_img {
+	width: 100%;
 	min-height: 600px;
 }
 
@@ -1135,6 +1154,10 @@ header {
 	background-size: cover;
 }
 
+.portfolio-header.second {
+	border-radius: 0;
+}
+
 .portfolio-header.frontend {
 	background-image: url('/images/portfolio/frontend_bg.png');
 }
@@ -1151,6 +1174,10 @@ header {
 	background-image: url('/images/portfolio/graphic_bg.png');
 }
 
+.portfolio-header.price {
+	background-image: url('/images/prices_bg.png');
+}
+
 .portfolio-header .bottom {
 	position: absolute;
 	bottom: 50px;
@@ -1160,6 +1187,19 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.portfolio-header .center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	padding: 0 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
 .portfolio-header .title {
@@ -1218,6 +1258,7 @@ header {
 	font-size: 24px;
 	text-transform: uppercase;
 	cursor: pointer;
+	transition: 0s;
 }
 
 .bottom-bar .point {
@@ -1250,4 +1291,40 @@ header {
 
 .slick-slide div {
 	margin: 0 5px;
+}
+
+.price-title {
+	font-family: 'Unbounded';
+	font-size: 48px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-top: 50px;
+}
+
+.price-column {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+p.point {
+	position: relative;
+	text-indent: 16px;
+	padding-left: 12px;
+}
+
+p.point::before {
+	content: '';
+	position: absolute;
+	left: 12px;
+	top: 16px;
+	width: 6px;
+	height: 6px;
+	background-color: var(--text-color);
+	border-radius: 50%;
+}
+
+ul.second {
+	list-style-type: disc;
+	/* padding-left: 0; */
 }

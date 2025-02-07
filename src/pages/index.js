@@ -9,11 +9,29 @@ import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import Request from '../components/request';
 
 export default function Home() {
 	const { theme, toggleTheme } = useTheme();
 	const [isVisible, setIsVisible] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
+
+	const carouselItems = {
+		4: {
+			title: 'TUZ Digital agency',
+			description: 'Сайт разработан для демонстрации ключевых достижений агентства и продажи услуг. Визуальная концепция поддерживает современный цифровой стиль, отражая экспертность компании.',
+		},
+		5: {
+			title: 'NExt step up school',
+			description: 'Курсы английского языка , которые подготавливают к IELTS и улучшают знание английского языка',
+		},
+		6: {
+			title: 'VONUS',
+			description: 'VONUS это биржа с возможностью просмотра текущей цены и покупкой криптовалюты',
+		},
+	}
+
+	const [activeCarousel, setActiveCarousel] = useState(carouselItems[4])
 
 	const carousel_items = [
 		'ESTY',
@@ -109,7 +127,9 @@ export default function Home() {
 			<section className="block_01 mobile-hide">
 				<div className="left_card">
 					<div className="d-flex justify-content-between align-items-center mb-100">
-						<Image src="./icons/logo_text.svg" alt="Логотип xeond" width={215} height={60} />
+						<Link href='/'>
+							<Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
+						</Link>
 
 						<div className="circles primary">
 							<div></div>
@@ -143,7 +163,7 @@ export default function Home() {
 					<Slider {...settings} arrows={false}>
 						{[1, 2, 3].map((item, index) => (
 							<div className="right_card_item" key={index}>
-								<img src="./images/carousel_1.png" className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+								<img src={`/images/carousel_${item}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
 
 								<div className="left">
 									<div className="d-flex gap-10">
@@ -157,8 +177,24 @@ export default function Home() {
 									</div>
 
 									<div className={`carousel-description ${showTooltip ? 'active' : ''}`}>
-										<span className="text-primary">Paul Patisserie</span> <br />
-										redesign concept
+										{item === 1 &&
+											<>
+												<span className="text-primary">makro app</span> <br />
+												redesign
+											</>
+										}
+										{item === 2 &&
+											<>
+												<span className="text-primary">T-CATS x geekcon</span> <br />
+												web-site development
+											</>
+										}
+										{item === 3 &&
+											<>
+												<span className="text-primary">pharma cosmos</span> <br />
+												design
+											</>
+										}
 									</div>
 								</div>
 
@@ -331,10 +367,10 @@ export default function Home() {
 
 			<section className="block_5 block_01" id="our_cases">
 				<div className="right_card">
-					<Slider {...settings} arrows={false}>
-						{[1, 2, 3].map((item, index) => (
+					<Slider {...settings} arrows={false} afterChange={(index) => setActiveCarousel(carouselItems[index + 4])}>
+						{[4, 5, 6].map((item, index) => (
 							<div className="right_card_item" key={index}>
-								<img src="./images/carousel_1.png" className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+								<img src={`/images/carousel_${item}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
 
 								<div className="left">
 									<div className="d-flex gap-10">
@@ -348,8 +384,8 @@ export default function Home() {
 									</div>
 
 									<div className={`carousel-description ${showTooltip ? 'active' : ''}`}>
-										<span className="text-primary">Paul Patisserie</span> <br />
-										redesign concept
+										<span className="text-primary">{activeCarousel.title}</span> <br />
+										{/* redesign concept */}
 									</div>
 								</div>
 
@@ -360,11 +396,11 @@ export default function Home() {
 
 				<div className="card">
 					<div className="d-flex justify-content-between align-items-center">
-						<h3 className="title">
-							<span className="text-orange">PAUL</span> PATISSERIE
+						<h3 className="title text-primary">
+							{activeCarousel.title}
 						</h3>
 
-						<div className="circles orange">
+						<div className="circles primary">
 							<div></div>
 							<div></div>
 							<div></div>
@@ -372,7 +408,7 @@ export default function Home() {
 					</div>
 
 					<p className="description">
-						Для сети <b>PAUL</b> мы обновили логотип и фирменный стиль. Наши исследования показали необходимость в современном обновлении, сохранив при этом узнаваемость бренда.
+						{activeCarousel.description}
 					</p>
 				</div>
 			</section>
@@ -475,11 +511,11 @@ export default function Home() {
 					</p>
 
 					<div className="d-flex align-items-center justify-content-between">
-						<button className="left-btn mobile-hide w-100">
+						<Link href="/ux/price" className="left-btn mobile-hide w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать <br />
 							подробнее
-						</button>
+						</Link>
 
 						<div className="right">
 							<p className="text-center">
@@ -497,11 +533,11 @@ export default function Home() {
 							</button>
 						</div>
 
-						<button className="left-btn mobile-show w-100">
+						<Link href="/ux/price" className="left-btn mobile-show w-100" >
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать
 							подробнее
-						</button>
+						</Link>
 					</div>
 				</div>
 
@@ -521,11 +557,11 @@ export default function Home() {
 					</p>
 
 					<div className="d-flex align-items-center justify-content-between">
-						<button className="left-btn mobile-hide w-100">
+						<Link href="/graphic/price" className="left-btn mobile-hide w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать <br />
 							подробнее
-						</button>
+						</Link>
 
 						<div className="right">
 							<p className="text-end">
@@ -545,11 +581,11 @@ export default function Home() {
 							</button>
 						</div>
 
-						<button className="left-btn mobile-show w-100">
+						<Link href="/graphic/price" className="left-btn mobile-show w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать
 							подробнее
-						</button>
+						</Link>
 					</div>
 				</div>
 
@@ -563,11 +599,11 @@ export default function Home() {
 					</p>
 
 					<div className="d-flex align-items-center justify-content-between">
-						<button className="left-btn mobile-hide w-100">
+						<Link href="/frontend/price" className="left-btn mobile-hide w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать <br />
 							подробнее
-						</button>
+						</Link>
 
 						<div className="right">
 							<p className="text-end">
@@ -587,11 +623,11 @@ export default function Home() {
 							</button>
 						</div>
 
-						<button className="left-btn mobile-show w-100">
+						<Link href="/frontend/price" className="left-btn mobile-show w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать
 							подробнее
-						</button>
+						</Link>
 					</div>
 				</div>
 
@@ -605,11 +641,11 @@ export default function Home() {
 					</p>
 
 					<div className="d-flex align-items-center justify-content-between">
-						<button className="left-btn mobile-hide w-100">
+						<Link href="/backend/price" className="left-btn mobile-hide w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать <br />
 							подробнее
-						</button>
+						</Link>
 
 						<div className="right">
 							<p className="text-end">
@@ -629,11 +665,11 @@ export default function Home() {
 							</button>
 						</div>
 
-						<button className="left-btn mobile-show w-100">
+						<Link href="/backend/price" className="left-btn mobile-show w-100">
 							<img src="./icons/book.svg" alt="Читать  подробнее" width={32} height={32} />
 							Читать
 							подробнее
-						</button>
+						</Link>
 					</div>
 				</div>
 

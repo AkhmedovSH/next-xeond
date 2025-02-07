@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Footer() {
@@ -17,11 +18,11 @@ function Footer() {
                     <div className="social-medias">
                         <a className="social-media" href="https://t.me/Xe0nd" target="_blank">
                             Telegram
-                            <img src="./icons/telegram.svg" alt="Иконка телеграмма" />
+                            <Image src="/icons/telegram.svg" alt="Иконка телеграмма" width={100} height={100} />
                         </a>
                         <a className="social-media" href="https://www.instagram.com/xeond?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                             Instagram
-                            <img src="./icons/instagram.svg" alt="Иконка инстаграма" />
+                            <Image src="/icons/instagram.svg" alt="Иконка инстаграма" width={100} height={100} />
                         </a>
                     </div>
                 </div>

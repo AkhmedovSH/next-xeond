@@ -1,10 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../../ThemeContext';
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Image from 'next/image';
+import Request from '../../components/request';
 
 function Frontend() {
     const { toggleTheme, theme } = useTheme();
@@ -26,7 +27,9 @@ function Frontend() {
             <section>
                 <div className="portfolio-header frontend">
                     <div className="mobile-hide d-flex justify-content-between align-content-center">
-                        <Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
+                        <Link href='/'>
+                            <Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
+                        </Link>
 
                         <div className="d-flex align-items-center gap-20">
                             <div className="circles primary">
@@ -447,24 +450,14 @@ function Frontend() {
                 </div>
             </section>
 
-            <section className="block_9">
-                <div className="card">
-                    <div className="title">
+            <Request
+                title={
+                    <p>
                         Оставить заявку <br />
                         на Frontend разработку
-                    </div>
-
-                    <button>
-                        <span>
-                            оставить заявку
-                        </span>
-
-                        <div className="star">
-                            <img src="./icons/button_star.svg" alt="" />
-                        </div>
-                    </button>
-                </div>
-            </section>
+                    </p>
+                }
+            />
 
             <Footer />
         </>

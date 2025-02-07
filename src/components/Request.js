@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Request({ title }) {
@@ -15,7 +16,7 @@ function Request({ title }) {
             </span>
 
             <div className="star">
-              <img src="./icons/button_star.svg" alt="" />
+              <Image src="/icons/button_star.svg" alt="Звездочка" width={24} height={24} />
             </div>
           </button>
         </div>
