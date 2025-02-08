@@ -9,7 +9,7 @@ import Header from '../components/Header';
 import { useTheme } from '../ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import Request from '../components/request';
+import Request from '../components/Request';
 
 export default function Home() {
 	const { theme, toggleTheme } = useTheme();
