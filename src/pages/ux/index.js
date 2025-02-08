@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Image from 'next/image';
 import Request from '../../components/request';
+import Link from 'next/link';
 
 function Frontend() {
 	const { toggleTheme, theme } = useTheme();
@@ -28,8 +29,8 @@ function Frontend() {
 				<div className="portfolio-header ux">
 					<div className="mobile-hide d-flex justify-content-between align-content-center">
 						<Link href='/'>
-                            <Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
-                        </Link>
+							<Image src="./icons/logo_text.svg" alt="Логотип Xeond" width={215} height={60} />
+						</Link>
 
 						<div className="d-flex align-items-center gap-20">
 							<div className="circles primary">

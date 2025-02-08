@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Image from 'next/image';
 import Request from '../../components/request';
+import Link from 'next/link';
 
 function Frontend() {
     const { toggleTheme, theme } = useTheme();
