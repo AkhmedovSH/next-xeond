@@ -5,7 +5,7 @@ import Head from 'next/head'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import Request from '../../components/request';
+import Request from '../../components/Request';
 
 import { useTheme } from '../../ThemeContext'
 

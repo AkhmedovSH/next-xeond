@@ -5,7 +5,7 @@ import { useTheme } from '../../ThemeContext';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Image from 'next/image';
-import Request from '../../components/request';
+import Request from '../../components/Request';
 import Link from 'next/link';
 
 function Frontend() {
