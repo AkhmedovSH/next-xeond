@@ -223,7 +223,7 @@ export default function Home() {
 
 			<section className="block_01 mobile-show">
 				<div className="carousel">
-					<Slider>
+					<Slider {...settings} arrows={false}>
 						<img src="./images/carousel_1.png" alt="" height={400} />
 						<img src="./images/carousel_2.png" alt="" height={400} />
 						<img src="./images/carousel_3.png" alt="" height={400} />
