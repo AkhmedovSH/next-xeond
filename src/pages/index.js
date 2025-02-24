@@ -16,6 +16,7 @@ export default function Home() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
+	const [isBottom, setIsBottom] = useState(false);
 
 	const carouselItems = {
 		4: {
@@ -101,6 +102,10 @@ export default function Home() {
 		}
 
 		const handleScroll = () => {
+			const isEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+
+			setIsBottom(isEnd);
+
 			if (window.scrollY > 385) {
 				setIsVisible(true);
 			} else {
@@ -110,7 +115,6 @@ export default function Home() {
 
 		window.addEventListener("scroll", handleScroll);
 
-		// Убираем обработчик при размонтировании
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
@@ -259,7 +263,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<ul className={`bottom-bar ${isVisible && 'active'}`}>
+			<ul className={`bottom-bar ${(isVisible && !isBottom) && 'active'}`}>
 				<Link href="#about_us">
 					<li>о нас</li>
 				</Link>
