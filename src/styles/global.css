@@ -54,6 +54,7 @@
 :root {
 	--primary: #1967F2;
 	--text-color: #3F3F3F;
+	--scroll-color: #f1f1f1;
 	--filter-white: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%);
 	--filter-black: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 	--filter-primary: invert(33%) sepia(87%) saturate(750%) hue-rotate(194deg) brightness(98%) contrast(97%);
@@ -97,11 +98,12 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-	background: #f1f1f1;
+	background: var(--scroll-color);
 }
 
 ::-webkit-scrollbar-thumb {
 	background: var(--primary);
+	border-radius: 21px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

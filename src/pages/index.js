@@ -354,24 +354,13 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="block_9">
-				<div className="card">
-					<div className="title">
+			<Request
+				title={
+					<p>
 						работаем по-проектно <br />
-						и без посредников
-					</div>
-
-					<button>
-						<span>
-							оставить заявку
-						</span>
-
-						<div className="star">
-							<img src="./icons/button_star.svg" alt="" />
-						</div>
-					</button>
-				</div>
-			</section>
+						и без посредников</p>
+				}
+			/>
 
 			<section className="block_5 block_01" id="our_cases">
 				<div className="right_card">
