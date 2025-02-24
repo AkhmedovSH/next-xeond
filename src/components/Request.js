@@ -15,15 +15,11 @@ function Request({ title, defaultActiveSelect = 1 }) {
   })
 
   const formatPhoneNumber = (value) => {
-    // Убираем все, кроме цифр
     let numbers = value.replace(/\D/g, "");
-
-    // Убираем +998, если пользователь пытается его стереть
     if (!numbers.startsWith("998")) {
       numbers = "998";
     }
 
-    // Форматируем в +998 XX XXX XX XX
     let formatted = `+${numbers.slice(0, 3)}`;
     if (numbers.length > 3) formatted += ` ${numbers.slice(3, 5)}`;
     if (numbers.length > 5) formatted += ` ${numbers.slice(5, 8)}`;
@@ -41,6 +37,8 @@ function Request({ title, defaultActiveSelect = 1 }) {
   }
 
   async function sendRequest() {
+    console.log(111);
+
     const botToken = '6836523730:AAF_OFdJa39ZaCD3Nra8GS7Z5LSg1DLRn9o'
     const chatId = "@xeond_requests"
     const API = `https://api.telegram.org/bot${botToken}/sendMessage`
@@ -64,16 +62,21 @@ function Request({ title, defaultActiveSelect = 1 }) {
       var copySendData = { ...data }
 
       var text = 'Новая заявка!🎉\n\n'
-      if (defaultPrice) {
-        var priceItem = prices.find(item => item.value === copySendData.type)
-        text += 'Пакет:' + `*${priceItem?.text} ${priceItem?.emoji}*\n`;
-      } else {
-        var seriveItem = services.find(item => item.value === copySendData.type)
-        text += 'Услуга:' + `*${seriveItem?.text} ${seriveItem?.emoji}*\n`;
+      text += 'Имя: ' + `*${copySendData.first_name} ${copySendData.second_name}*\n`
+      text += 'Компания: ' + `*${copySendData.company}*\n`
+      text += 'Телефон: ' + `*${copySendData.phone}*\n`
+      if (copySendData.activeSelect === 1) {
+        text += 'Услуга: ' + `*Графический дизайн*`
       }
-      text += 'Имя:' + `*${copySendData.first_name} ${copySendData.second_name}*\n`
-      text += 'Компания:' + `*${copySendData.company}*`
-      text += 'Телефон:' + `*${copySendData.phone}*`
+      if (copySendData.activeSelect === 2) {
+        text += 'Услуга: ' + `*UX/UI дизайн*`
+      }
+      if (copySendData.activeSelect === 3) {
+        text += 'Услуга: ' + `*FRONTEND DEVELOPMENT*`
+      }
+      if (copySendData.activeSelect === 4) {
+        text += 'Услуга: ' + `*BACKEND DEVELOPMENT*`
+      }
       const response = await fetch(API, {
         method: 'POST',
         headers: {
@@ -90,7 +93,13 @@ function Request({ title, defaultActiveSelect = 1 }) {
         // setTimeout(() => {
         //   setShowSuccess(false)
         // }, 1500);
-        setData({ ...data, name: '', phone: '', })
+        setData({
+          ...data,
+          first_name: '',
+          second_name: '',
+          company: '',
+          phone: '+998 '
+        })
       }
     } catch (e) {
       console.log(e);
@@ -192,7 +201,7 @@ function Request({ title, defaultActiveSelect = 1 }) {
               </div>
             </div>
 
-            <div className="modal-footer" onClick={() => sendRequest()}>
+            <div className="modal-footer" onClick={() => sendRequest()} data-bs-dismiss="modal">
               <button type="button" className="button-primary">
                 оставить заявку
 
