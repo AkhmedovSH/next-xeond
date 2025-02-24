@@ -109,7 +109,7 @@ function Frontend() {
 
 			<section>
 				<div className="card">
-					/ Кейсы. Makro / Kingsman / It Park / Tehnikum / GoFly / Profyer / AbexLab / Форма / Xeond / Arkon / D:CODE / Qadam Education / Nazz / Shakh Tours / Hon Saroy / HeyFlowers / World Medicine / TCats / MBank / PlaceParking / PDD Uzbekistan
+					/ Кейсы. ЯQН, ESTY, PharmaCosmos, ПДД, Xeond, PLaceParking, DineUp, NSUS, Steppe Journeys, AccOne, T-Cats, LocaBar
 				</div>
 			</section>
 
