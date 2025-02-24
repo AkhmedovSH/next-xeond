@@ -48,3 +48,24 @@ body.dark .project-row .card,
 body.dark .block_5 .card {
 	background-image: url('/images/bg_logo_dark.png');
 }
+
+body.dark .modal-content {
+	background: #000;
+	border: 1px solid #3F3F3F;
+}
+
+body.dark .modal-input {
+	background: rgba(26, 26, 26, 0.70);
+	border: none;
+	color: #fff;
+}
+
+body.dark .modal-input::placeholder {
+	color: rgba(255, 255, 255, 0.20);
+	font-size: 16px;
+}
+
+body.dark .modal-select {
+	background: rgba(26, 26, 26, 0.70);
+	border: none;
+}

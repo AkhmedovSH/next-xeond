@@ -1,6 +1,80 @@
-@media (max-width: 1800px) {}
+@media (max-width: 1300px) {
+
+	.block_4,
+	.block_6,
+	.block_10 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+
+	.block_8 {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 10px;
+	}
+
+	.block_8 .card {
+		width: 100%;
+	}
+
+	.block_7 .card .big-circles {
+		display: none;
+	}
+
+	footer {
+		height: 100%;
+		background-position: bottom 50px center;
+	}
+
+	footer .social-media {
+		font-size: 24px;
+		height: 195px;
+	}
+
+	footer .social-media img {
+		width: 50px;
+		height: 50px;
+	}
+
+	footer .mobile-show {
+		margin-top: 400px;
+		justify-content: center;
+	}
+
+	footer .xeond {
+		text-align: center;
+		font-size: 14px;
+		padding: 0;
+	}
+
+	footer .xeond_title {
+		font-size: 36px;
+	}
+
+	footer .row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	footer .mobile-hide {
+		display: none;
+	}
+
+	footer .mobile-show {
+		display: inherit !important;
+	}
+}
 
 @media (max-width: 576px) {
+	.block_4,
+	.block_6,
+	.block_10 {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 10px;
+	}
+
 	body {
 		font-size: 16px;
 	}
@@ -229,7 +303,6 @@
 		padding: 0;
 	}
 
-
 	footer .xeond_title {
 		font-size: 36px;
 	}
@@ -240,7 +313,7 @@
 
 		position: fixed;
 		top: 0;
-		z-index: 2;
+		z-index: 4;
 		width: 100%;
 		padding: 25px;
 
@@ -400,5 +473,19 @@
 	p.point::before {
 		left: 17px;
 		top: 8px;
+	}
+
+	.modal-selects {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 10px;
+	}
+
+	.block_6 .arrow-circle {
+		display: none;
+	}
+
+	.block_5 .right_card_img {
+		min-height: 400px;
 	}
 }

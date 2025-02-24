@@ -14,6 +14,7 @@ import Request from '../components/Request';
 export default function Home() {
 	const { theme, toggleTheme } = useTheme();
 	const [isVisible, setIsVisible] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
 
 	const carouselItems = {
@@ -71,6 +72,9 @@ export default function Home() {
 		if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 			addAnimation();
 		}
+		if (window.innerWidth < 576) {
+			setIsMobile(true)
+		}
 
 		function addAnimation() {
 			const scroller = document.querySelector(".scroller");
@@ -113,7 +117,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Head>
 				<title>Xeond</title>
 				<meta name="description" content="XEOND - основанная в 2024 году, представляет собой инновационную компанию, специализирующуюся в дизайне. Наша миссия - создание пространств и визуальных решений" />
@@ -219,7 +223,11 @@ export default function Home() {
 
 			<section className="block_01 mobile-show">
 				<div className="carousel">
-					<img src="./images/carousel_1.png" alt="" height={400} />
+					<Slider>
+						<img src="./images/carousel_1.png" alt="" height={400} />
+						<img src="./images/carousel_2.png" alt="" height={400} />
+						<img src="./images/carousel_3.png" alt="" height={400} />
+					</Slider>
 
 					<ul className="navigation">
 						<Link href="#about_us">
@@ -370,7 +378,7 @@ export default function Home() {
 					<Slider {...settings} arrows={false} afterChange={(index) => setActiveCarousel(carouselItems[index + 4])}>
 						{[4, 5, 6].map((item, index) => (
 							<div className="right_card_item" key={index}>
-								<img src={`/images/carousel_${item}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+								<img src={`/images/carousel_${item}${isMobile ? '_mobile' : ''}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
 
 								<div className="left">
 									<div className="d-flex gap-10">
@@ -730,6 +738,6 @@ export default function Home() {
 			</section>
 
 			<Footer />
-		</div>
+		</>
 	);
 }

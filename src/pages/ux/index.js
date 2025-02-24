@@ -222,6 +222,7 @@ function Frontend() {
 			</section>
 
 			<Request
+				defaultActiveSelect={2}
 				title={
 					<p>
 						Оставить заявку <br />
