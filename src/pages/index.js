@@ -1,7 +1,7 @@
 'use client'; // Важно для Next.js 13+ в компонентах "app router"
 
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Slider from "react-slick";
 
 import Footer from '../components/Footer'
@@ -53,10 +53,15 @@ export default function Home() {
 	const settings = {
 		dots: true,
 		infinite: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
 		speed: 500,
+		fade: false,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		initialSlide: 0,
+		pauseOnFocus: false,
+		pauseOnHover: true,
 		responsive: [
 			{
 				breakpoint: 768,
@@ -168,10 +173,10 @@ export default function Home() {
 				</div>
 
 				<div className="right_card">
-					<Slider {...settings} arrows={false}>
+					<Slider {...settings} arrows={false} >
 						{[1, 2, 3].map((item, index) => (
 							<div className="right_card_item" key={index}>
-								<img src={`/images/carousel_${item}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+								<img src={`/images/carousel_${item}.png`} className="right_card_img" alt="Пример работы компании xeond" />
 
 								<div className="left">
 									<div className="d-flex gap-10">
@@ -368,10 +373,10 @@ export default function Home() {
 
 			<section className="block_5 block_01" id="our_cases">
 				<div className="right_card">
-					<Slider {...settings} arrows={false} afterChange={(index) => setActiveCarousel(carouselItems[index + 4])}>
+					<Slider {...settings} arrows={false} afterChange={(index) => setActiveCarousel(index + 4)}>
 						{[4, 5, 6].map((item, index) => (
 							<div className="right_card_item" key={index}>
-								<img src={`/images/carousel_${item}${isMobile ? '_mobile' : ''}.png`} className="right_card_img" alt="Пример работы компании xeond" height={1000} />
+								<img src={`/images/carousel_${item}${isMobile ? '_mobile' : ''}.png`} className="right_card_img" alt="Пример работы компании xeond" />
 
 								<div className="left">
 									<div className="d-flex gap-10">
@@ -386,7 +391,6 @@ export default function Home() {
 
 									<div className={`carousel-description ${showTooltip ? 'active' : ''}`}>
 										<span className="text-primary">{activeCarousel.title}</span> <br />
-										{/* redesign concept */}
 									</div>
 								</div>
 
@@ -396,21 +400,25 @@ export default function Home() {
 				</div>
 
 				<div className="card">
-					<div className="d-flex justify-content-between align-items-center">
-						<h3 className="title text-primary">
-							{activeCarousel.title}
-						</h3>
+					{[4, 5, 6].map((item, index) => (
+						<Fragment key={index}>
+							<div className="d-flex justify-content-between align-items-center">
+								<h3 className="title text-primary">
+									{carouselItems[item].title}
+								</h3>
 
-						<div className="circles primary">
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
+								<div className="circles primary">
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+							</div>
 
-					<p className="description">
-						{activeCarousel.description}
-					</p>
+							<p className="description">
+								{carouselItems[item].description}
+							</p>
+						</Fragment>
+					))}
 				</div>
 			</section>
 

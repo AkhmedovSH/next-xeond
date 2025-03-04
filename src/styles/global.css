@@ -305,6 +305,7 @@ section {
 	width: 100%;
 	min-width: 0px;
 	user-select: none;
+	border-radius: 30px;
 	outline: none;
 }
 
@@ -1426,4 +1427,15 @@ ul.second {
 .modal-select.active {
 	background-color: var(--primary) !important;
 	color: #fff !important;
+}
+
+.hide {
+	display: none !important;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
 }
