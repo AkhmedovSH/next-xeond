@@ -521,4 +521,9 @@
 	.block_8 .card .right-btn .star, .block_9 button .star, .button-primary .star {
 		display: none;
 	}
+
+	.project-images .project-images-card img {
+		max-height: 140px;
+		height: 140px;
+	}
 }
