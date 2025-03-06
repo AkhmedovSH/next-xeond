@@ -171,14 +171,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://colibristudio.uz/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -231,14 +231,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://makromarket.uz/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -292,14 +292,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://tcats.uz/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>

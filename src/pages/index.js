@@ -17,6 +17,9 @@ export default function Home() {
 	const [isMobile, setIsMobile] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
 	const [isBottom, setIsBottom] = useState(false);
+	const [fade, setFade] = useState(false);
+
+	const [defaultActiveSelect, setDefaultActiveSelect] = useState(1);
 
 	const carouselItems = {
 		4: {
@@ -70,6 +73,14 @@ export default function Home() {
 				},
 			},
 		],
+	};
+
+	const handleSlideChange = (index) => {
+		setFade(false); // Убираем активный класс (делаем текст невидимым)
+		setTimeout(() => {
+			setActiveCarousel(carouselItems[index + 4]); // Меняем контент
+			setFade(true); // Добавляем класс снова (делаем текст видимым)
+		}, 300); // Задержка перед сменой контента (чтобы не мигало)
 	};
 
 
@@ -255,9 +266,11 @@ export default function Home() {
 
 				<div className="card">
 					<div className="d-flex justify-content-between align-items-start">
-						Выходим за <br />
-						орбиту <br />
-						возможного
+						<h1>
+							Выходим за <br />
+							<span>орбиту</span> <br />
+							возможного
+						</h1>
 
 						<div className="circles primary">
 							<div></div>
@@ -289,22 +302,24 @@ export default function Home() {
 				</button>
 			</ul>
 
-			<section className="block_2">
-				<div className="scroller" dataSpeed="fast">
-					<ul className="tag-list scroller__inner">
-						{carousel_items.map((item, index) => (
-							<li key={index} className="item">
-								{item}
-							</li>
-						))
-						}
-						{carousel_items.map((item, index) => (
-							<li key={`duplicate-${index}`} className="item">
-								{item}
-							</li>
-						))
-						}
-					</ul>
+			<section>
+				<div className="block_2">
+					<div className="scroller" dataSpeed="fast">
+						<ul className="tag-list scroller__inner">
+							{carousel_items.map((item, index) => (
+								<li key={index} className="item">
+									{item}
+								</li>
+							))
+							}
+							{carousel_items.map((item, index) => (
+								<li key={`duplicate-${index}`} className="item">
+									{item}
+								</li>
+							))
+							}
+						</ul>
+					</div>
 				</div>
 			</section>
 
@@ -364,6 +379,7 @@ export default function Home() {
 			</section>
 
 			<Request
+				defaultActiveSelect={defaultActiveSelect}
 				title={
 					<p>
 						работаем по-проектно <br />
@@ -373,7 +389,7 @@ export default function Home() {
 
 			<section className="block_5 block_01" id="our_cases">
 				<div className="right_card">
-					<Slider {...settings} arrows={false} afterChange={(index) => setActiveCarousel(index + 4)}>
+					<Slider {...settings} arrows={false} afterChange={handleSlideChange}>
 						{[4, 5, 6].map((item, index) => (
 							<div className="right_card_item" key={index}>
 								<img src={`/images/carousel_${item}${isMobile ? '_mobile' : ''}.png`} className="right_card_img" alt="Пример работы компании xeond" />
@@ -400,25 +416,21 @@ export default function Home() {
 				</div>
 
 				<div className="card">
-					{[4, 5, 6].map((item, index) => (
-						<Fragment key={index}>
-							<div className="d-flex justify-content-between align-items-center">
-								<h3 className="title text-primary">
-									{carouselItems[item].title}
-								</h3>
+					<div className="d-flex justify-content-between align-items-center">
+						<h3 className={`title text-primary ${fade ? 'active' : ''}`}>
+							{activeCarousel.title}
+						</h3>
 
-								<div className="circles primary">
-									<div></div>
-									<div></div>
-									<div></div>
-								</div>
-							</div>
+						<div className="circles primary">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
 
-							<p className="description">
-								{carouselItems[item].description}
-							</p>
-						</Fragment>
-					))}
+					<p className={`description ${fade ? 'active' : ''}`}>
+						{activeCarousel.description}
+					</p>
 				</div>
 			</section>
 
@@ -531,7 +543,7 @@ export default function Home() {
 								<b>$1250 в месяц</b> <br />
 								<span className="text-primary">+WEB</span> в подарок
 							</p>
-							<button className="right-btn">
+							<button className="right-btn" data-bs-toggle="modal" data-bs-target="#requestModal" onClick={() => setDefaultActiveSelect(2)}>
 								<span>
 									выбрать
 								</span>
@@ -579,7 +591,7 @@ export default function Home() {
 									в месяц
 								</b>
 							</p>
-							<button className="right-btn">
+							<button className="right-btn" data-bs-toggle="modal" data-bs-target="#requestModal" onClick={() => setDefaultActiveSelect(1)}>
 								<span>
 									выбрать
 								</span>
@@ -621,7 +633,7 @@ export default function Home() {
 									в месяц
 								</b>
 							</p>
-							<button className="right-btn">
+							<button className="right-btn" data-bs-toggle="modal" data-bs-target="#requestModal" onClick={() => setDefaultActiveSelect(3)}>
 								<span>
 									выбрать
 								</span>
@@ -663,7 +675,7 @@ export default function Home() {
 									в месяц
 								</b>
 							</p>
-							<button className="right-btn">
+							<button className="right-btn" data-bs-toggle="modal" data-bs-target="#requestModal" onClick={() => setDefaultActiveSelect(4)}>
 								<span>
 									выбрать
 								</span>
@@ -685,6 +697,7 @@ export default function Home() {
 			</section>
 
 			<Request
+				defaultActiveSelect={defaultActiveSelect}
 				title={
 					<p>
 						работаем по-проектно <br />

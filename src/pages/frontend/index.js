@@ -177,14 +177,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://cabinet.betrim.uz/shift-report" target="_blank" className="card-content cursor">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -241,14 +241,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://cabinet.mdokon.uz/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -307,14 +307,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="#!" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -372,14 +372,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://www.vonus.org/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -438,14 +438,14 @@ function Frontend() {
 								</div>
 							</div>
 
-							<div className="card-content">
+							<Link href="https://cabinet.mison.uz/" className="card-content">
 								<div className="top">
 									Ссылка
 								</div>
-								<div className="bottom">
-
+								<div className="bottom link">
+									<img src="/icons/link_icon.svg" alt="" width={34} height={34} />
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>

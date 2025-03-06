@@ -67,7 +67,10 @@
 }
 
 @media (max-width: 576px) {
+
 	.block_4,
+	.block_01,
+	.block_5,
 	.block_6,
 	.block_10 {
 		display: flex;
@@ -487,5 +490,30 @@
 
 	.block_5 .right_card_img {
 		min-height: 400px;
+	}
+
+	.block_01 h1 {
+		font-size: 23px;
+		color: rgba(25, 103, 242, 0.50);
+		font-family: 'Unbounded';
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.block_01 h1 span {
+		font-size: 23px;
+		color: var(--primary);
+	}
+
+	.block_8 .card .right-btn:hover, .block_9 button:hover, .button-primary:hover {
+		box-shadow: none;
+	}
+
+	.block_8 .card .right-btn:hover span, .block_9 button:hover span, .button-primary:hover span {
+		margin-right: 0;
+	}
+
+	.block_8 .card .right-btn .star, .block_9 button .star, .button-primary .star {
+		display: none;
 	}
 }
