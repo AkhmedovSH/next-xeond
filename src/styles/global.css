@@ -93,7 +93,7 @@ img {
 }
 
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 0;
 	height: 0;
 }
 
@@ -1150,15 +1150,23 @@ header {
 	gap: 20px;
 }
 
+.project-images.second {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
 .project-images-card {
-	width: calc(50% - 10px);
+	width: 100%;
 	padding: 20px;
 	background-color: #F2F2F2;
 	border-radius: 20px;
 	/* min-height: 560px; */
+}
 
-	display: flex;
-	flex-wrap: wrap;
+.project-images-card .grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 20px;
 }
 
@@ -1167,7 +1175,7 @@ header {
 }
 
 .project-images .project-images-card img {
-	width: calc(33% - 11px);
+	width: 100%;
 	height: fit-content;
 }
 

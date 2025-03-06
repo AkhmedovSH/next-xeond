@@ -465,8 +465,12 @@
 		width: 100%;
 	}
 
-	.project-images .project-images-card img {
-		width: calc(50% - 5px);
+	.project-images.second {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.project-images-card .grid {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.price-title {

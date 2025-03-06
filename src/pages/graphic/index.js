@@ -161,33 +161,41 @@ function Frontend() {
 
 						<div className="project-images second">
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_smm_1_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_1_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_1_3.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_1_4.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_1_5.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_smm_1_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_1_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_1_3.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_1_4.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_1_5.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_smm_2_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_2_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_2_3.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_smm_2_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_2_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_2_3.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_smm_3_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_3_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_3_3.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_3_4.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_smm_3_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_3_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_3_3.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_3_4.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_smm_4_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_4_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_4_3.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_4_4.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_4_5.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_smm_4_6.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_smm_4_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_4_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_4_3.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_4_4.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_4_5.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_smm_4_6.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -211,20 +219,24 @@ function Frontend() {
 
 						<div className="project-images second">
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_product_1_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_1_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_1_3.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_1_4.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_1_5.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_1_6.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_product_1_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_1_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_1_3.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_1_4.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_1_5.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_1_6.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 
 							<div className="project-images-card">
-								<img src="./images/portfolio/graphic_product_2_1.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_2_2.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_2_3.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_2_4.png" alt="Пример Graphic design Работы" />
-								<img src="./images/portfolio/graphic_product_2_5.png" alt="Пример Graphic design Работы" />
+								<div className="grid">
+									<img src="./images/portfolio/graphic_product_2_1.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_2_2.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_2_3.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_2_4.png" alt="Пример Graphic design Работы" />
+									<img src="./images/portfolio/graphic_product_2_5.png" alt="Пример Graphic design Работы" />
+								</div>
 							</div>
 						</div>
 					</div>
